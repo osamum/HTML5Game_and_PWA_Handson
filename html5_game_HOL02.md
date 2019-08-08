@@ -203,6 +203,7 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
 
 [⇒ HTML5 game and PWD HOL Ex2 sample code](https://gist.github.com/osamum/75154b8b0db6c99702d561092ff343c4)
 
+### 目次
 <div style="text-align: right;">
 <a href="html5_game_HOL03.md">3. 基本的なアニメーションの実装</a>
 <br>

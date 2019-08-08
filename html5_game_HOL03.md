@@ -39,9 +39,10 @@ function renderFrame() {
 5. Canvas 部分をクリックし、雪の結晶画像が上から下へ繰り返しアニメーションするか確認してください。
 
 ここまでの default.js の完全なコードは以下になります。
+
 [⇒ HTML5 game and PWD HOL Ex3 sample code](https://gist.github.com/osamum/1dedd598464c4dce90a3b897082becfb)
 
-
+### 目次
 <div style="text-align: right;">
 <br>
 <a href="html5_game_HOL04.md">4. 矢印キーとタッチによる制御</a>
