@@ -48,14 +48,14 @@ htt-server の動作の確認はプロジェクトを作成した後で行うの
 
 1. Visual Studio Code の左側なある EXPLORER のツリーで「SNOWCATCH」にマウスポインタを載せ、表示されたフォルダアイコン (New Folderメニュー) をクリックし、scripts という名前でフォルダを作成します
 
-    <img src="images/vs_NewFolder.png" width="250px">
+    <img src="images/vs_NewFolder.png" width="300px">
 2. 作成した scripts フォルダの下の余白で右クリックして [New Folder] メニューを選択し
 
-    <img src="images/vs_NewFolder2.png" width="250px">
+    <img src="images/vs_NewFolder2.png" width="300px">
 
     audio、css, img という 3 つのフォルダを作成します 
 
-    <img src="images/vs_NewFolder3.png" width="250px">
+    <img src="images/vs_NewFolder3.png" width="300px">
 
 以上でこのプロジェクトで使用するフォルダが作成できました。
 
