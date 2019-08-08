@@ -46,7 +46,7 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
         img.snow.src = './img/snow.png';
         /*画像読み込み完了の Canvas に 
         画像を表示するメソッドを記述 */
-        img.snow.onload = function () { 
+        img.snow.onload = ()=> { 
             /*このハンドラの処理は演習 6 のタスク 1 手順 3 で書き換えます*/
             /*ここに演習 2 タスク 2 でコードを追加します。*/
         //canvas 上で image を描画  
@@ -85,7 +85,7 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
             /*ここに演習 7 のタスク 1 で Getter と Setter の
            コードが追加されます*/
             //Sprite を描画するメソッド 
-            this.draw = function () {
+            this.draw = ()=> {
                 ctx.drawImage(img, this.x, this.y);
             };
         }
@@ -104,7 +104,7 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
     ```
 3. 定義した Sprite クラスを使用するように loadAssets 関数の img.snow.onload イベント ハンドラの内容以下のようにを書き換えます。
     ```
-     img.snow.onload = function () { 
+     img.snow.onload = ()=> { 
        /*このハンドラの処理は演習 6 のタスク 1 手順 3 で書き換えます*/
        /*ここは演習 7 のタスク 1 手順 3 で変更されます*/
        //画像を引数に Sprite クラスのインスタンスを生成  
@@ -179,7 +179,7 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
     //雪だるまインスタンスの生成 
     img.snow_man = new Image(); 
     img.snow_man.src = './img/snow_man.png'; 
-    img.snow_man.onload = function () { 
+    img.snow_man.onload = ()=> { 
         /*このハンドラの処理は演習 6 のタスク 1 手順 3 で書き換えます*/
         sprite.snow_man = new Sprite(img.snow_man);
         sprite.snow_man.x = getCenterPostion(canvas.clientWidth, sprite.snow_man.width); 
@@ -202,7 +202,6 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
 ここまでの default.js の完全なコードは以下になります。
 
 [⇒ HTML5 game and PWD HOL Ex2 sample code](https://gist.github.com/osamum/75154b8b0db6c99702d561092ff343c4)
-<script src="https://gist.github.com/osamum/2939279001f184abb139bdf041667ac6.js"></script>
 
 <div style="text-align: right;">
 <a href="html5_game_HOL03.md">3. 基本的なアニメーションの実装</a>

@@ -39,7 +39,7 @@ function renderFrame() {
 5. Canvas 部分をクリックし、雪の結晶画像が上から下へ繰り返しアニメーションするか確認してください。
 
 ここまでの default.js の完全なコードは以下になります。
-<script src="https://gist.github.com/osamum/1dedd598464c4dce90a3b897082becfb.js"></script>
+[⇒ HTML5 game and PWD HOL Ex3 sample code](https://gist.github.com/osamum/1dedd598464c4dce90a3b897082becfb)
 
 
 <div style="text-align: right;">

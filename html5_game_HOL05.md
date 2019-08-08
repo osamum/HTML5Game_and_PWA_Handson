@@ -41,7 +41,7 @@
 6. Canvas 部分をクリックし、雪の結晶と雪だるまが重なったときに「ヒットしました」と表示されるのを確認してください。
 
 ここまでの default.js の完全なコードは以下になります。
-<script src="https://gist.github.com/osamum/0acd43c12e00aa0811ab21b95b2b1d2d.js"></script>
+[⇒ HTML5 game and PWD HOL Ex5 sample code](https://gist.github.com/osamum/0acd43c12e00aa0811ab21b95b2b1d2d)
 
 <div style="text-align: right;">
 <a href="html5_game_HOL06.md">6. 複数 Sprite の生成とランダムな動作</a>
