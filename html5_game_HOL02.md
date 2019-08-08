@@ -189,7 +189,6 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
         getRightLimitPosition 関数を使用した処理を記述します*/
         sprite.snow_man.draw(); 
     };
-
     ```
 2. [Ctrl] + [S] キーを押下して作業内容を保存します。
 3. Visual Studio Code のターミナル画面から http-server を起動し、以下の URL にアクセスします。
@@ -201,6 +200,8 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
 <img src="images/ex2_task4_result.png" width="200px">
 
 ここまでの default.js の完全なコードは以下になります。
+
+[⇒ HTML5 game and PWD HOL Ex2 sample code](https://gist.github.com/osamum/75154b8b0db6c99702d561092ff343c4)
 <script src="https://gist.github.com/osamum/2939279001f184abb139bdf041667ac6.js"></script>
 
 <div style="text-align: right;">

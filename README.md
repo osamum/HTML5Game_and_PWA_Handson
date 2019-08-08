@@ -6,9 +6,13 @@
 HTML5 を使用したゲーム開発は、Canvas、SVG を使用した 2D ゲーム、WebGL を使用した 3D CG ゲームなどがありますが、このハンズオンでは、入門者向けに Canvas を使用したシンプルな 2D ゲームを開発し、JavaScript を使用したゲーム開発の基礎について学びます。
 
 ## 開発するゲーム
-空から降って来る雪を雪だるまがキャッチするゲームです。
+空から降って来る雪の結晶を雪だるまがキャッチするゲームです。
 
-<img src="images/screen_top.png" width="200px">
+<div style="width:100%;">
+<div style="width:200px; margin:0 auto;">
+<img src="images/screen_top.png" style="width:200px;">
+</div>
+</div>
 
 これを作成することにより Canvas でのアニメーションとキーボード、タッチによるスプライト(ゲームのキャラクター)の操作、当たり判定といったゲームの基本的にことを学ぶことができます。
 
