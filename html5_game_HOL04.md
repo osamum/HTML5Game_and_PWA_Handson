@@ -117,18 +117,26 @@
 5. Visual Studio Code のターミナル画面から **http-server** を起動します。
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
-6. engrok  コマンドプロンプトを起動し、cd コマンドで作業ディレクトリを ngrok.exe が配置されているディレクトリに切り替えます
-7. 以下のコマンドを実行します
+6. コマンドプロンプトを起動し、cd コマンドで作業ディレクトリを ngrok.exe が配置されているディレクトリに切り替えます
+7. 以下のコマンドを実行して cmd にシェルを切り替えます。
+
+    ***cmd**
+
+8. 以下のコマンドを実行します
+
     **ngrok http 8080 --host-header=localhost**
-5. エコーされた内容の Foewarding の横に表示された http、もしくは https のドメイン名を使用してアクセスします
+
+9. エコーされた内容の Foewarding の横に表示された http、もしくは https のドメイン名を使用してアクセスします
 
     <img src="images/engrok.png">
-    たとえば、ngrok から返されたドメイン名が **http://9fcf38b6.engrok.io** だった場合は以下の URL でインターネットからローカルの default.html にアクセスすることができます。
-    **http://9fcf38b6.engrok.io/default.html**
+    たとえば、ngrok から返されたドメイン名が http://9fcf38b6.engrok.io だった場合は以下の URL でインターネットからローカルの default.html にアクセスすることができます。
+    
+    http://9fcf38b6.engrok.io/default.html
 
-7. スマートフォンの Web ブラウザーからアクセスして、ページが表示されること、左右のスワイプで雪だるまを左右に動かせることを確認してください。
+10. スマートフォンの Web ブラウザーからアクセスして、ページが表示されること、左右のスワイプで雪だるまを左右に動かせることを確認してください。
 
 ここまでの default.js の完全なコードは以下になります。
+
 [⇒ HTML5 game and PWD HOL Ex4 sample code](https://gist.github.com/osamum/fb7b00f4d8b3d23e68a36bbbf606a767)
 
 実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_2/default.html)をクリックしてください。
