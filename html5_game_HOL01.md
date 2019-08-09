@@ -182,7 +182,7 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
 
 Web ブラウザーに黒い四角が表示されたら完了です。
 
-<img src="images/ex2_result.png" width="250">
+<img src="images/ex1_result.png" width="250">
 
 http-server のサービスを終了するにはキーボードの [Ctrl] + [C] キーをクリックします。
 

@@ -7,7 +7,7 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
 *  ページの準備ができた際に動作するイベントハンドラと、その中から呼ばれる必要なリソースを読み込む loadAssets 関数を定義します
 
 具体的な手順は以下のとおりです。
-1. Visual Studio Code のツリービューで default.js をダブルクリックで開き、コメント「/* ここに演習 2 タスク 1 で変数を記述します。*/」を以下の記述で上書きします。
+1. Visual Studio Code のツリービューで **default.js** をダブルクリックで開き、コメント「**/* ここに演習 2 タスク 1 で変数を記述します。*/**」を以下の記述で上書きします。
     ```
     //全体で使用する変数
     /*ここに演習 4 タスク 1 で変数を追加します。*/
@@ -17,8 +17,10 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
     let img = {snow:null,snow_man:null};
     let requestId;
     ```
+    コードを張り付けてインデントが崩れたら **[Alt] + [Shift] + [F]** キーを押下して体裁を整えます。
+
 2. DOM の読み込みが完了した際の以下のイベントハンドラを追加します。
-    コメント「//ここに演習 2 タスク 3 の雪だるま画像をロードする処理を記述します。」を以下の記述で上書きします。
+    コメント「**/ *ここに演習 2 タスク 1 でドキュメントロード時のイベントハンドラを記述します。*/**」を以下の記述で上書きします。
     ```
     //DOM のロードが完了したら実行      
     document.addEventListener('DOMContentLoaded', ()=> { 
@@ -26,12 +28,12 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
         /*ここに演習 4 タスク 1 で setHandlers 関数の呼び出しを記述します*/
     });
     /*ここに演習 2 のタスク 2 で Sprite クラスを定義します*/
-
     ```
-    
+    コードを張り付けてインデントが崩れたら **[Alt] + [Shift] + [F]** キーを押下して体裁を整えます。
+
 3. Canvas に画像をロードするための loadAssets 関数を記述します。
 
-    コメント「/* ここに演習 2 タスク 1 で loadAssets 関数を記述します。*/」を以下の記述で上書きします。
+    コメント「**/* ここに演習 2 タスク 1 で loadAssets 関数を記述します。*/**」を以下の記述で上書きします。
     ```
     //ゲームに必要なアセットをロードする
     function loadAssets() { 
@@ -48,22 +50,21 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
         /*画像読み込み完了の Canvas に 
         画像を表示するメソッドを記述 */
         img.snow.onload = ()=> { 
-            /*このハンドラの処理は演習 6 のタスク 1 手順 3 で書き換えます*/
-            /*ここに演習 2 タスク 2 でコードを追加します。*/
-        //canvas 上で image を描画  
-        ctx.drawImage(img.snow, 0, 0);  
+            /*ここは演習 2 タスク 2 でハンドラ内のコードを書き換えます*/
+            //canvas 上で image を描画  
+            ctx.drawImage(img.snow, 0, 0);  
         }; 
         //ここに演習 2 タスク 3 の雪だるま画像をロードする処理を記述します。
     };
     ```
-4. [Ctrl] + [S] キーを押下して作業内容を保存します。
+4. **[Ctrl] + [S]** キーを押下して作業内容を保存します。
 5. Visual Studio Code のターミナル画面から http-server を起動し、以下の URL にアクセスします。
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
 
 以下の画像が表示されれば完了です。
 
-<img src="images/ex2_result.png" width="200px">
+<img src="images/ex2_result.png" width="250px">
 
 
 ## タスク 2 – Sprite オブジェクトの定義
@@ -71,7 +72,7 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
 タスク 1 では画像をそのまま image オブジェクトで扱いましたが、これではゲームで使用するオブジェクト固有のプロパティやメソッドを実装するのに不便な点があります。
 この演習では、ゲーム内のキャラクターを扱うための Sprite オブジェクトのクラスを定義します。
 
-1. Sprite クラスを定義します。コメント「/* ここに演習 2 のタスク 2 で Sprite クラスを定義します*/」を以下の記述で上書きします。
+1. Sprite クラスを定義します。コメント「**/* ここに演習 2 のタスク 2 で Sprite クラスを定義します*/** 」を以下の記述で上書きします。
     ```
     //Sprite クラスの定義 
     class Sprite {
@@ -94,8 +95,9 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
         }
     }
     ```
+    コードを張り付けてインデントが崩れたら **[Alt] + [Shift] + [F]** キーを押下して体裁を整えます。
 
-2. 生成された Sprite クラスのインスタンスを格納するための変数を先ほど定義した Sprite 関数の定義の前にあるコメント「/* ここに演習 2 タスク 2 で Sprite クラス(関数) のインスタンスを格納するための変数オブジェクトを定義します*/」以下のように記述します。
+2. 生成された Sprite クラスのインスタンスを格納するための変数を先ほど定義した Sprite 関数の定義の前にあるコメント「**/* ここに演習 2 タスク 2 で Sprite クラス(関数) のインスタンスを格納するための変数オブジェクトを定義します*/**」以下のように記述します。
     ```
     //Sprite を扱う変数オブジェクト
     let sprite = {
@@ -105,22 +107,24 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
         snow_man: null
     };
     ```
-3. 定義した Sprite クラスを使用するように loadAssets 関数の img.snow.onload イベント ハンドラの内容以下のようにを書き換えます。
+    コードを張り付けてインデントが崩れたら **[Alt] + [Shift] + [F]** キーを押下して体裁を整えます。
+
+3. 定義した Sprite クラスを使用するように **loadAssets** 関数の **img.snow.onload** イベント ハンドラの内容を以下のように完全に書き換えます。
     ```
      img.snow.onload = ()=> { 
        /*このハンドラの処理は演習 6 のタスク 1 手順 3 で書き換えます*/
        /*ここは演習 7 のタスク 1 手順 3 で変更されます*/
        //画像を引数に Sprite クラスのインスタンスを生成  
       sprite.snow = new Sprite(img.snow);
-      sprite.snow.x = 0;
+      sprite.snow.x = 0; //ここは演習 2 タスク 3 で書き換えます
       sprite.snow.y = 0;
       //Sprite オブジェクトに定義した draw メソッドで描画
       sprite.snow.draw(); 
     }; 
     ```
 
-3. [Ctrl] + [S] キーを押下して作業内容を保存します。
-4. Visual Studio Code のターミナル画面から http-server を起動し、以下の URL にアクセスします。
+3. **[Ctrl] + [S]** キーを押下して作業内容を保存します。
+4. Visual Studio Code のターミナル画面から **http-server** を起動し、以下の URL にアクセスします。
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
 
@@ -133,19 +137,21 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
 ***
 現在 Canvas の左上に表示されている画像が中央に表示されるようにします。
 
-画像の中央の位置を求める getCenterPostion 関数を定義し、同関数から得られた値を Spriteに設定します。
+画像の中央の位置を求める **getCenterPostion** 関数を定義し、同関数から得られた値を Spriteに設定します。
 
-以下の手順で default.js にコードを追加します。
+以下の手順で **default.js** にコードを追加します。
 
-1. loadAssets 関数の閉じ括弧の下のコメント「/* ここに演習 2 タスク 2 で getCenterPostion関数を記述します。*/」を以下のコードで置き換えます
+1. **loadAssets** 関数の閉じ括弧の下のコメント「**/* ここに演習 2 タスク 2 で getCenterPostion関数を記述します。*/**」を以下のコードで置き換えます
     ```
     //中央の Left 位置を求める関数 
     function getCenterPostion(containerWidth, itemWidth) { 
         return (containerWidth/2) - (itemWidth/2); 
     };
     ```
-2. loadAssets 関数内にある img.snow.onload イベントハンドラの内容を、先ほど定義した getCenterPostion 関数を使用して書き換えます。
-    具体的には sprite.snow.x の値を設定している箇所です
+    コードを張り付けてインデントが崩れたら **[Alt] + [Shift] + [F]** キーを押下して体裁を整えます。
+
+2. **loadAssets** 関数内にある **img.snow.onload** イベントハンドラの内容を、先ほど定義した **getCenterPostion** 関数を使用して書き換えます。
+    具体的には **sprite.snow.x** の値を設定している箇所です。コメント「**//ここは演習 2 タスク 3 で書き換えます**」を目印にしてください。
     ```
     img.snow.onload = ()=> { 
         /*このハンドラの処理は演習 6 のタスク 1 手順 3 で書き換えます*/
@@ -155,7 +161,6 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
 
         //以下の行が書き換え箇所です
         sprite.snow.x = getCenterPostion(canvas.clientWidth, sprite.snow.width);
-        
         sprite.snow.y = 0;
         //Sprite オブジェクトに定義した draw メソッドで描画
         sprite.snow.draw(); 
@@ -168,16 +173,18 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
 
 雪の結晶の画像が Canvas の中央に表示されるか確認してください。
 
+<img src="images/ex2_3result.png" width="250">
+
 もしうまくいかない場合は[このコード](https://gist.github.com/osamum/754de15ab68f976b36e0b8d8243d9321)を参考にしてください。
 
 
 ## タスク 4 : 雪だるまの追加
 ***
-Canvas の下端中央に雪だるまの Sprite を追加します。処理的には雪の結晶 Spriteを配置する処理と大きく変わるところはありません。
+Canvas の下端中央に雪だるまの Sprite を追加します。処理的には雪の結晶 Sprite を配置する処理と大きく変わるところはありません。
 
 コードの追加手順は以下のとおりです。
 
-1. loadAssets 関数内のコメント「//ここに演習 2 タスク 3 の雪だるま画像をロードする処理を記述します。」を以下のコードで置き換えます
+1. **loadAssets** 関数内のコメント「**//ここに演習 2 タスク 3 の雪だるま画像をロードする処理を記述します。**」を以下のコードで置き換えます
     ```
     //雪だるまインスタンスの生成 
     img.snow_man = new Image(); 
@@ -193,14 +200,16 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
         sprite.snow_man.draw(); 
     };
     ```
-2. [Ctrl] + [S] キーを押下して作業内容を保存します。
+    コードを張り付けてインデントが崩れたら **[Alt] + [Shift] + [F]** キーを押下して体裁を整えます。
+
+2. **[Ctrl] + [S]** キーを押下して作業内容を保存します。
 3. Visual Studio Code のターミナル画面から http-server を起動し、以下の URL にアクセスします。
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
 
 雪だるまの画像が以下のように Canvas の中央下端に表示されるか確認してください。
 
-<img src="images/ex2_task4_result.png" width="200px">
+<img src="images/ex2_task4_result.png" width="250px">
 
 ここまでの default.js の完全なコードは以下になります。
 
