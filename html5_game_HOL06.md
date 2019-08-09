@@ -200,7 +200,7 @@
 
 [⇒ HTML5 game and PWD HOL Ex6 task3 sample code](https://gist.github.com/osamum/09b9087313a9ccf035f3a94bc362766f)
 
-
+***
 
 [7. ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
 
