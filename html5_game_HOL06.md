@@ -181,6 +181,7 @@
 5. 表示されたページの Canvas 部分をクリックし、作業前と同様に動作することを確認してください。
 
 ここまでの default.js の完全なコードは以下になります。
+
 [⇒ HTML5 game and PWD HOL Ex6 sample code](https://gist.github.com/osamum/09b9087313a9ccf035f3a94bc362766f)
 
 <div style="text-align: right;">

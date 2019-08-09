@@ -115,7 +115,8 @@
         //雪だるま画像は、表示領域の底辺に画像の底辺がつくように 
         sprite.snow_man.y = canvas.clientHeight - img.snow_man.height;
         //右側に動かせる最大値を設定 
-        sprite.snow_man.limit_rightPosition = getRightLimitPosition(canvas.clientWidth,                                                                             img.snow_man.width); 
+        sprite.snow_man.limit_rightPosition = getRightLimitPosition(canvas.clientWidth,
+            img.snow_man.width); 
     };
     ```
 7. renderFrame 関数の最後の処理である window.requestAnimationFrame(renderFrame); の前の行に処理数のカウントを行うコードを追加します。
@@ -165,3 +166,7 @@
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
 13. 表示されたページの Canvas 部分をクリックし、雪の結晶が降ってくる際に点滅し、雪だるまと当たった際には画像が変更されることを確認してください。
+
+ここまでの default.js の完全なコードは以下になります。
+
+[⇒ HTML5 game and PWD HOL Ex7 sample code](https://gist.github.com/osamum/50551b30d92be53a0958ba855d2b1896)
