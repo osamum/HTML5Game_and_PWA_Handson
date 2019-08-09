@@ -1,11 +1,11 @@
 # 演習 3 : 基本的なアニメーションの実装
-HTML5 でサポートされた requestAnimationFrame メソッドを使用して処理全体をループさせ、アニメーションを実装します。
+HTML5 でサポートされた **requestAnimationFrame** メソッドを使用して処理全体をループさせ、アニメーションを実装します。
 
 このループ中に行われる処理全体をフレームと呼び、フレーム内でオブジェクトのプロパティの値を増分あるいは減分することによりアニメーションを実現します。
 
 ## タスク 1 : ループ処理の実装
 ***
-1. getCenterPostion 関数を定義している箇所の下のコメント「/* ここに演習 3 タスク 1 で renderFrame関数を記述します。*/」を、ループ処理を行うための以下の renderFrame 関数に書き換えます。
+1. **getCenterPostion** 関数を定義している箇所の下の行コメント「**/* ここに演習 3 タスク 1 で renderFrame関数を記述します。*/**」を、ループ処理を行うための以下の **renderFrame** 関数に書き換えます。
 ```
 function renderFrame() { 
     //sprite.snow の y 値(縦位置) が canvas からはみ出たら先頭に戻す 
@@ -24,7 +24,9 @@ function renderFrame() {
     requestId =window.requestAnimationFrame(renderFrame); 
 }
 ```
-2. Canvas のクリックをきっかけにフレームが開始されるされるようにloadAssets 関数の最初の処理 canvas = document.getElementById('bg'); の下にあるコメント「/* ここに演習 3 タスク 1 で Click イベントハンドラ処理を追加します*/」を以下のコードに置き換えます。
+コードを張り付けてインデントが崩れたら **[Alt] + [Shift] + [F]** キーを押下して体裁を整えます。
+
+2. Canvas のクリックをきっかけにフレームが開始されるされるように **loadAssets** 関数の最初の処理 canvas = document.getElementById('bg'); の下にあるコメント「**/* ここに演習 3 タスク 1 で Click イベントハンドラ処理を追加します*/**」を以下のコードに置き換えます。
 ```
     //アニメーションの開始
     canvas.addEventListener('click', ()=>{
@@ -41,6 +43,8 @@ function renderFrame() {
 ここまでの default.js の完全なコードは以下になります。
 
 [⇒ HTML5 game and PWD HOL Ex3 sample code](https://gist.github.com/osamum/1dedd598464c4dce90a3b897082becfb)
+
+実際のコードの動作を確認したい場合は<a src="https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex3/default.html" target="_blank">ここ</a>をクリックしてください。
 
 ### 目次
 [4. 矢印キーとタッチによる制御](html5_game_HOL04.md)
