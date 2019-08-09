@@ -5,16 +5,16 @@
 
 <img src="images/sprite.png" width="200px">
 
-1. 雪の結晶の動作が使用する定数 NOWS_MOVING_CONF の定義に、スプライトとして切り出す画像の内容と、インデックスを示す定数と切り出す画像のサイズ、画像の切り替えに使用する変数などを定義します。
+1. 雪の結晶の動作が使用する定数 **NOWS_MOVING_CONF** の定義に、スプライトとして切り出す画像の内容と、インデックスを示す定数と切り出す画像のサイズ、画像の切り替えに使用する変数などを定義します。
 
-    具体的には NOWS_MOVING_CONF 内にあるコメント「/* ここに演習 7 タスク 1 で switch_count プロパティを記述します。*/」を以下のコードで置き換えます。
+    具体的には **NOWS_MOVING_CONF** 内にあるコメント「**/* ここに演習 7 タスク 1 で switch_count プロパティを記述します。*/**」を以下のコードで置き換えます。
     ```
     //雪の結晶画像を切り替える閾値  
     switch_count : 24
     ```
-    なお、前の行の start_coefficient : -50 の最後に , (カンマ) を追加しないとエラーになるので注意してください。
+    なお、前の行の **start_coefficient : -50** の最後に , (カンマ) を追加しないとエラーになるので注意してください。
 2. スプライトの画像の切り出しなどに使用するオブジェクトを定義します。
-    手順 1 の作業を行った近くにあるコメント「/* ここに演習 7 タスク 1 でスプライト関連の変数をいくつか記述します。*/」を以下のコードで置き換えます。
+    手順 1 の作業を行った近くにあるコメント「**/* ここに演習 7 タスク 1 でスプライト関連の変数をいくつか記述します。*/**」を以下のコードで置き換えます。
     ```
     //スプライト画像のインデックス
     let SNOW_PICTURE = {blue : 0, white : 1, clash : 2};
@@ -25,7 +25,7 @@
     //画面の書き換え数をカウントする 
     let loopCounter = 0;
     ```
-3. スプライトを使用して画像をインデックスで指定できるように Sprite クラスの constructor の引数と、this.height、this.width の設定を以下のように変更します。
+3. スプライトを使用して画像をインデックスで指定できるように Sprite クラスの **constructor** の引数と、**this.height**、**this.width** の設定を以下のように変更します。
 
     constructor の引数
     ```
@@ -48,8 +48,8 @@
     this.height = (sp_height)?sp_height : img.height;
     this.width = (sp_width)?sp_width : img.width; 
     ```
-4.  Sprite クラスにプロパティが設定されたときに動作する Getter と Setter を追加します。
-    Sprite クラス内のコメント「/* ここに演習 7 のタスク 1 で Getter と Setter のコードが追加されます*/」を以下のコードで置き換えます。
+4.  **Sprite** クラスにプロパティが設定されたときに動作する **Getter** と **Setter** を追加します。
+    **Sprite** クラス内のコメント「**/* ここに演習 7 のタスク 1 で Getter と Setter のコードが追加されます*/++」を以下のコードで置き換えます。
     ```
     let _offset_x_pos = 0; 
     let that = this; 
@@ -65,7 +65,7 @@
         } 
     }); 
     ```
-5. Sprite クラス内の draw メソッドを以下のように書き換えます。
+5. **Sprite** クラス内の **draw** メソッドを以下のように書き換えます。
     ```
     [変更前]
     //Sprite を描画するメソッド 
@@ -80,7 +80,7 @@
                          that.x, that.y, that.width, that.height); 
     }; 
     ```
-6. Sprite クラスのコンストラクタの引数の変更に合わせ loadAssets 関数内で Sprite クラスのインスタンスを生成している箇所を各々以下のように書き換えます。画像のファイルが snow.png から sp_snow.png に変更されているので注意してください。
+6. **Sprite** クラスのコンストラクタの引数の変更に合わせ **loadAssets** 関数内で **Sprite** クラスのインスタンスを生成している箇所を各々以下のように書き換えます。画像のファイルが **snow.png** から **sp_snow.png** に変更されているので注意してください。
     ```
     //image オブジェクトに画像をロード  
     //変更前 : img.snow.src = './img/snow.png';
@@ -119,16 +119,16 @@
             img.snow_man.width); 
     };
     ```
-7. renderFrame 関数の最後の処理である window.requestAnimationFrame(renderFrame); の前の行に処理数のカウントを行うコードを追加します。
+7. **renderFrame** 関数の最後の処理である **window.requestAnimationFrame(renderFrame);** の前の行に処理数のカウントを行うコードを追加します。
 
-    具体的には、renderFrame 関数内のコメント「/* ここに演習 7 のタスク 1 手順 7 で処理数のカウントを追加します*/」を以下のコードに置き換えます。
+    具体的には、**renderFrame** 関数内のコメント「**/* ここに演習 7 のタスク 1 手順 7 で処理数のカウントを追加します*/**」を以下のコードに置き換えます。
     ```
     //処理数のカウント 
     if (loopCounter == SNOWS_MOVING_CONF.switch_count) { loopCounter = 0; } 
     loopCounter++;
     ```
-8.	renderFrame 関数内の sprite_snow の y 値(縦位置) が canvas からはみ出たら先頭に戻す処理に以下のように追記します。
-    具体的には、renderFrame 関数内のコメント「/* ここに演習 7 のタスク 1 手順 8 でコードを追加します*/」を以下のコードに置き換えます。
+8.	**renderFrame** 関数内の **sprite_snow** の y 値(縦位置) が canvas からはみ出たら先頭に戻す処理に以下のように追記します。
+    具体的には、**renderFrame** 関数内のコメント「**/* ここに演習 7 のタスク 1 手順 8 でコードを追加します*/**」を以下のコードに置き換えます。
     ```
         sprite_snow.imageIndex = SNOW_PICTURE.blue; 
         /*ここに演習 7 のタスク 2 手順 4 でaudioPlayedプロパティをセットします*/
@@ -139,7 +139,7 @@
                                　? SNOW_PICTURE.white : SNOW_PICTURE.blue; 
     } 
     ```
-9. あたり判定時の雪の結晶画像の切り替え処理を hitJob 関数中に以下のように追記します。
+9. あたり判定時の雪の結晶画像の切り替え処理を **hitJob** 関数中に以下のように追記します。
     ```
     //あたり判定の際の処理
     //変更前 : function hitJob() {
@@ -153,7 +153,7 @@
         /*ここに演習 7 タスク 2 手順 3 でオーディオを再生するコードを追加します*/
     }
     ```
-10. 前の手順での hitJob 関数の引数の変更に合わせ、renderFrame 関数中の hitJob 関数の呼び出しを以下のように変更します。
+10. 前の手順での **hitJob** 関数の引数の変更に合わせ、**renderFrame** 関数中の **hitJob** 関数の呼び出しを以下のように変更します。
     ```
     [変更前]
     //当たり判定 

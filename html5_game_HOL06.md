@@ -80,8 +80,7 @@
             var sprite_snow = sprite.snows[i];
             //sprite_snow の y 値(縦位置) が canvas からはみ出たら先頭に戻す 
             if (sprite_snow.y > canvas.clientHeight) {
-                /*演習 6 のタスク 2 ステップ 3 で
-                 getRandomPosition 関数から値を取得するように変更 */
+                /* ここに演習 7 のタスク 1 手順 8 でコードを追加します*/
                 sprite_snow.y = 0;
             };
             //sprite_snow の y 値を増分 
