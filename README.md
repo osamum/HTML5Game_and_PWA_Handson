@@ -38,4 +38,5 @@ HTML5 を使用したゲーム開発は、Canvas、SVG を使用した 2D ゲー
 5.	[当たり判定](html5_game_HOL05.md)
 6.	[複数 Sprite の生成とランダムな動作](html5_game_HOL06.md)
 7.	[ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
-8.	[Microsoft Azure Web Apps へのデプロイ](html5_game_HOL08.md)
+8.	[ルールの追加](html5_game_HOL08.md)
+9.  [Progressive Web App 化](html5_game_HOL09.md)
