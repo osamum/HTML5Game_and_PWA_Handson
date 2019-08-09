@@ -9,7 +9,7 @@ HTML5 を使用したゲーム開発は、Canvas、SVG を使用した 2D ゲー
 空から降って来る雪の結晶を雪だるまがキャッチするゲームです。
 
 <div style="width:100%;">
-<div style="width:200px; margin:0 auto;">
+<div style="width:300px; margin:0 auto;">
 <img src="images/screen_top.png" width="200px">
 </div>
 </div>

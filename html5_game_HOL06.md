@@ -20,9 +20,9 @@
     //雪の結晶の動作が使用する定数
     let SNOWS_MOVING_CONF = {
         //表示する雪の結晶の数 
-        count : 6,
+        count : 7,
         //隣り合う 雪の結晶画像の x 位置の差分
-        neighor_distance : 58
+        neighor_distance : 56
         /* ここに演習 6 タスク 2 で start_coefficient プロパティを記述します。*/
         /* ここに演習 7 タスク 1 で switch_count プロパティを記述します。*/
     };
