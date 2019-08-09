@@ -1,12 +1,12 @@
 # 演習 4 : 矢印キーとタッチによる制御の実装
 キーボードの矢印キーと、タッチイベントで雪だるま画像を左右に動かせるようにします。
 ## タスク 1 : キーダウンイベントの取得と雪だるまの制御 
-*** 
+
 キーダウンイベントを取得し、引数として渡されるキーコードの内容を判別して雪ダルマを左右に動かします。
 
 具体的な手順は以下のとおりです。
 1.	キー コード判別用と、タッチの識別で使用する変数を追加します。
-    全体を囲んでいる即時実行関数の先頭箇所にあるコメント「/*ここに演習 4 タスク 1 で変数を追加します。*/」を以下のコードで置き換えます。
+    全体を囲んでいる即時実行関数の先頭箇所にあるコメント「**/* ここに演習 4 タスク 1 で変数を追加します。*/**」を以下のコードで置き換えます。
     ```
     //矢印キーのコード 
     let KEY_CODE = {
@@ -17,8 +17,8 @@
     //タッチ開始時の位置
     let touchStartPos = 0;
     ```
-2. キーダウンとキーアップのイベントを取得すハンドラを記述しますが、あとで記述するタッチイベントのハンドラとまとめるために setHandlers 関数を作成します。
-renderFrame 関数の定義箇所の上にあるコメント「/* ここに演習 4 タスク 1 で setHandlers 関数の定義を記述します*/」を以下のコードで置き換えます。
+2. キーダウンとキーアップのイベントを取得すハンドラを記述しますが、あとで記述するタッチイベントのハンドラとまとめるために **setHandlers** 関数を作成します。
+**renderFrame** 関数の定義箇所の上の行にあるコメント「**/* ここに演習 4 タスク 1 で setHandlers 関数の定義を記述します*/**」を以下のコードで置き換えます。
     ```
     function setHandlers(){
         //キーイベントの取得 (キーダウン) 
@@ -37,15 +37,15 @@ renderFrame 関数の定義箇所の上にあるコメント「/* ここに演�
     };
 
     ```
-3. 定義した setHandlers 関数を呼び出すコードを記述します。
+3. 定義した **setHandlers** 関数を呼び出すコードを記述します。
 
-    DOMContentLoaded イベントハンドラ内のコメント「/* ここに演習 4 タスク 1 で setHandlers 関数の呼び出しを記述します */」を以下のコードで置き換えます。
+    **DOMContentLoaded** イベントハンドラ内のコメント「**/* ここに演習 4 タスク 1 で setHandlers 関数の呼び出しを記述します */**」を以下のコードで置き換えます。
     ```
     setHandlers();
     ```
-4. 雪だるまが Canvas の右端からはみ出ないよう計算する getRightLimitPosition 関数を記述します。
+4. 雪だるまが Canvas の右端からはみ出ないよう計算する **getRightLimitPosition** 関数を記述します。
     
-    default.js 下部にあるコメント「/* ここに演習 4 タスク 1 で getRightLimitPosition関数を記述します。*/」を以下のコードで置き換えます。
+    **default.js** 下部にあるコメント「**/* ここに演習 4 タスク 1 で getRightLimitPosition関数を記述します。*/**」を以下のコードで置き換えます。
     ```
     //雪だるまを動かせる右の限界位置を算出する 
     function getRightLimitPosition(containerWidth, itemWidth)
@@ -53,15 +53,15 @@ renderFrame 関数の定義箇所の上にあるコメント「/* ここに演�
          return containerWidth - itemWidth; 
     }
     ```
-5. loadAssets 関数中で雪だるまの画像をロードしている箇所に getRightLimitPosition 関数の呼び出しを追記し、sprite.snow_man の limit_rightPosition プロパティに返り値をセットするようにします。limit_rightPosition プロパティは、あらかじめ定義はされていませんか、JavaScript では値がセットされたと同時にプロパティが作られるので問題ありません。
+5. **loadAssets** 関数中で雪だるまの画像をロードしている箇所に **getRightLimitPosition** 関数の呼び出しを追記し、**sprite.snow_man** の X 軸の限界座標を保持する **limit_rightPosition** プロパティに返り値をセットするようにします。**limit_rightPosition** プロパティは、あらかじめ定義はされていませんか、JavaScript では値がセットされたと同時にプロパティが作られるので問題ありません。
 
-    loadAssets 関数の中のコメント「/* ここに演習 4 のタスク 1 で getRightLimitPosition 関数を使用した処理を記述します*/」を以下のコードで置き換えます。
+    **loadAssets** 関数の中のコメント「**/* ここに演習 4 のタスク 1 で getRightLimitPosition 関数を使用した処理を記述します*/**」を以下のコードで置き換えます。
     ```
     //右側に動かせる最大値を設定 
     sprite.snow_man.limit_rightPosition = getRightLimitPosition(
         canvas.clientWidth, sprite.snow_man.width);
     ```
-6. renderFrame 関数に、雪だるま画像の横位置を書き換えるコードを追記します。renderFrame 関数内のコメント「/* ここに演習 4 タスク 1 手順 6 のコードを追記します。*/」を以下のコードで置き換えます。
+6. **renderFrame** 関数に、雪だるま画像の横位置を書き換えるコードを追記します。**renderFrame** 関数内のコメント「**/* ここに演習 4 タスク 1 手順 6 のコードを追記します。*/**」を以下のコードで置き換えます。
     ```
     // sprite.snow_man の x 値が動作範囲内かどうか 
     if ((sprite.snow_man.x < sprite.snow_man.limit_rightPosition && key_value > 0) 
@@ -71,10 +71,16 @@ renderFrame 関数の定義箇所の上にあるコメント「/* ここに演�
         }       
     ```
 7. [Ctrl] + [S] キーを押下して作業内容を保存します。
-8. Visual Studio Code のターミナル画面から http-server を起動し、以下の URL にアクセスします。
+8. Visual Studio Code のターミナル画面から **http-server** を起動し、以下の URL にアクセスします。
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
 6. Canvas 部分をクリックし、雪の結晶が動き始めたらキーボードの矢印キーを押下して、雪だるまが左右に動くか確認してください。
+
+ここまでの default.js の完全なコードは以下になります。
+[⇒ HTML5 game and PWD HOL Ex4 task1 sample code](https://gist.github.com/osamum/2c31d14e6d5623863f5e36e2e04c35d0)
+
+実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_1/default.html)をクリックしてください。
+
 
 
 ## タスク 2 : タッチイベントの取得と雪だるまの制御
@@ -82,7 +88,7 @@ renderFrame 関数の定義箇所の上にあるコメント「/* ここに演�
 タッチイベント発生時の位置とスワイプ時の位置から移動量を計算し、雪ダルマを左右に動かします。
 手順は以下のとおりです。
 
-1. setHandlers 関数にタッチ関連のイベントハンドラを追加します。同関数内のコメント「/* ここに演習 4 のタスク 2 でタッチイベントのハンドラを記述*/」を以下のコードに置き換えます。
+1. **setHandlers** 関数にタッチ関連のイベントハンドラを追加します。同関数内のコメント「**/* ここに演習 4 のタスク 2 でタッチイベントのハンドラを記述*/**」を以下のコードに置き換えます。
     ```
     //Canvas へのタッチイベント設定 
     canvas.addEventListener('touchstart', (evnt)=> {
@@ -108,22 +114,24 @@ renderFrame 関数の定義箇所の上にあるコメント「/* ここに演�
     }
     ```
 4. [Ctrl] + [S] キーを押下して作業内容を保存します。
-5. Visual Studio Code のターミナル画面から http-server を起動します。
+5. Visual Studio Code のターミナル画面から **http-server** を起動します。
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
 6. engrok  コマンドプロンプトを起動し、cd コマンドで作業ディレクトリを ngrok.exe が配置されているディレクトリに切り替えます
 7. 以下のコマンドを実行します
-    <p style="text-indent:2em">ngrok http 8080 --host-header=localhost</p>
+    **ngrok http 8080 --host-header=localhost**
 5. エコーされた内容の Foewarding の横に表示された http、もしくは https のドメイン名を使用してアクセスします
 
     <img src="images/engrok.png">
-    たとえば、ngrok から返されたドメイン名が http://9fcf38b6.engrok.io だった場合は以下の URL でインターネットからローカルの default.html にアクセスすることができます。
-    <p style="text-indent:2em">http://9fcf38b6.engrok.io/default.html</p>
+    たとえば、ngrok から返されたドメイン名が **http://9fcf38b6.engrok.io** だった場合は以下の URL でインターネットからローカルの default.html にアクセスすることができます。
+    **http://9fcf38b6.engrok.io/default.html**
 
 7. スマートフォンの Web ブラウザーからアクセスして、ページが表示されること、左右のスワイプで雪だるまを左右に動かせることを確認してください。
 
 ここまでの default.js の完全なコードは以下になります。
 [⇒ HTML5 game and PWD HOL Ex4 sample code](https://gist.github.com/osamum/fb7b00f4d8b3d23e68a36bbbf606a767)
+
+実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_2/default.html)をクリックしてください。
 
 
 

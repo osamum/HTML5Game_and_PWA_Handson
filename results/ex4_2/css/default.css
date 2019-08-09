@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    touch-action: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+/*加点や失点を表示するボックス*/
+.statusBox {
+    width: 134px;
+    text-align: center;
+    float: left;
+    font-weight: bold;
+    background-color: black;
+    color:skyblue;
+    padding: 3px;
+}
+/*タイトルを表示するボックス*/
+#centerBox {
+    width: 89px;
+    background-color: black;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    float: left;
+    padding: 3px;
+}
