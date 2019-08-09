@@ -76,15 +76,17 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
 
     <img src="images/vs_NewFile2.png" width="250px">
 
-3. HTMLファイルに名前を付けると、画面右側にファイルの編集画面が表示されるので、ファイル編集画面で ! と入力し [Tab] キーをクリックすると、基本的な HTML のタグが自動的に入力されます。
+3. HTMLファイルに名前を付けると、画面右側にファイルの編集画面が表示されるので、ファイル編集画面で **!** と入力し [Tab] キーをクリックすると、基本的な HTML のタグが自動的に入力されます。
 これは [Emmet](https://emmet.io/) と呼ばれる機能で、HTML や CSS を省略して入力することができます
-4. html タグの lang 属性を 'en' から 'jp' に変更し、[Ctrl] + [S] キーを押下して、変更を保存します
-5. title タグの内容を Document から SnowCatch HOL に変更します
-6. title タグの下の行で link とタイプし、[Tab] キーを押下すると、link タグが挿入されるので、href 属性の値を "css/default.css" に書き換えます
+4. html タグの lang 属性を 'en' から **'jp'** に変更し、[Ctrl] + [S] キーを押下して、変更を保存します
+5. title タグの内容を Document から **SnowCatch HOL**  に変更します
+6. title タグの下の行で **link** とタイプし、[Tab] キーを押下すると、link タグが挿入されるので、href 属性の値を **"css/default.css"** に書き換えます
 7. css/default.css にハイパーリンクが付加されるので、[Ctrl] キーを押下しながらクリックします
 8. 画面右下にファイルが存在しないことを示すダイアログボックスが表示されるので、同ダイアログボックス内の [Create File] ボタンをクリックします
 
-    css フォルダ内に default.css ファイルが作成され画面が開くので、以下のマークアップを張り付けます。
+9. default.html の編集画面で、title タグの下で **link** とタイプして [Tab]キーを押下すると、link タグが追加されるので href 属性の値を "./css/default.css" に書き換えます。
+
+     css フォルダ内に default.css ファイルが作成され画面が開くので、以下のマークアップを張り付けます。
     ```
     body {
         margin: 0;
@@ -113,9 +115,8 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
         padding: 3px;
     }
     ```
-9. default.html の編集画面で、title タグの下で link とタイプして [Tab]キーを押下すると、link タグが追加されるので href 属性の値を "./css/default.css" に書き換えます。
-10. default.html の編集画面で、link タグの下で scr とタイプすると、入手候補がリスト表示されるので、リストから script:scr を選択します。なお、選択は矢印キーと [Tab] キーで行います
-11. script タグが挿入されるので、scr 属性の値を "scripts/default.js" に書き換えます。
+10. default.html の編集画面で、link タグの下で **scr** とタイプすると、入手候補がリスト表示されるので、リストから script:scr を選択します。なお、選択は矢印キーと [Tab] キーで行います
+11. script タグが挿入されるので、scr 属性の値を **"scripts/default.js"** に書き換えます。
 12. scripts/default.js にハイパーリンクが付加されるので、[Ctrl] キーを押下しながらクリックします
 13. 画面右下にファイルが存在しないことを示すダイアログボックスが表示されるので、同ダイアログボックス内の [Create File] ボタンをクリックします
 
