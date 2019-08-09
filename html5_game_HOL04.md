@@ -127,15 +127,14 @@ renderFrame 関数の定義箇所の上にあるコメント「/* ここに演�
 
 
 
-<div style="text-align: right;">
-<a href="html5_game_HOL05.md">5. 当たり判定の実装</a>
-<br>
-<a href="html5_game_HOL06.md">6. 複数 Sprite の生成とランダムな動作</a>
-<br>
-<a href="html5_game_HOL07.md">7. ヒット時の画像の切り替えと効果音の実装</a>
-<br>
-<a href="html5_game_HOL08.md">8. Microsoft Azure Web Apps へのデプロイ</a>
-</div>
+[5. 当たり判定](html5_game_HOL05.md)
+
+[6. 複数 Sprite の生成とランダムな動作](html5_game_HOL06.md)
+
+[7. ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
+
+[8. ルールの追加](html5_game_HOL08.md)
+
 
 [0. 最初に戻る](README.md)
 

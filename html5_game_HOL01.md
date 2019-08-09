@@ -224,8 +224,9 @@ engrok の実行をを終了するにはキーボードの [Ctrl] + [C] キー�
 
 [6. 複数 Sprite の生成とランダムな動作](html5_game_HOL06.md)
 
-[7.ヒット時の画像の切り替えと効果音の実装](html5_game_HOL08.md)
+[7. ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
 
+[8. ルールの追加](html5_game_HOL08.md)
 
 [0. 最初に戻る](README.md)
 
