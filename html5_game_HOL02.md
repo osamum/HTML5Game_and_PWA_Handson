@@ -35,6 +35,7 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
     ```
     //ゲームに必要なアセットをロードする
     function loadAssets() { 
+        /*ここに演習 8 で Rule クラスのインスタンスを生成するコードを記述します*/
         //HTML ファイル上の canvas エレメントのインスタンスを取得   
         canvas = document.getElementById('bg'); 
         /*ここに演習 3 タスク 1 で Click イベントハンドラ処理を追加します*/

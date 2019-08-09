@@ -84,13 +84,42 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
 7. css/default.css にハイパーリンクが付加されるので、[Ctrl] キーを押下しながらクリックします
 8. 画面右下にファイルが存在しないことを示すダイアログボックスが表示されるので、同ダイアログボックス内の [Create File] ボタンをクリックします
 
-    css フォルダ内に default.css ファイルが作成され画面が開きますが、なにもせずに編集画面上部のタブで default.html を選択し、もとの画面に戻ります
-9. default.html の編集画面で、link タグの下で scr とタイプすると、入手候補がリスト表示されるので、リストから script:scr を選択します。なお、選択は矢印キーと [Tab] キーで行います
-10. script タグが挿入されるので、scr 属性の値を "scripts/default.js" に書き換えます。
-11. scripts/default.js にハイパーリンクが付加されるので、[Ctrl] キーを押下しながらクリックします
-12. 画面右下にファイルが存在しないことを示すダイアログボックスが表示されるので、同ダイアログボックス内の [Create File] ボタンをクリックします
+    css フォルダ内に default.css ファイルが作成され画面が開くので、以下のマークアップを張り付けます。
+    ```
+    body {
+        margin: 0;
+        touch-action: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+    }
+    //加点や失点を表示するボックス
+    .statusBox {
+        width: 134px;
+        text-align: center;
+        float: left;
+        font-weight: bold;
+        background-color: black;
+        color:skyblue;
+        padding: 3px;
+    }
+    //タイトルを表示するボックス
+    #centerBox {
+        width: 89px;
+        background-color: black;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        float: left;
+        padding: 3px;
+    }
+    ```
+9. default.html の編集画面で、title タグの下で link とタイプして [Tab]キーを押下すると、link タグが追加されるので href 属性の値を "./css/default.css" に書き換えます。
+10. default.html の編集画面で、link タグの下で scr とタイプすると、入手候補がリスト表示されるので、リストから script:scr を選択します。なお、選択は矢印キーと [Tab] キーで行います
+11. script タグが挿入されるので、scr 属性の値を "scripts/default.js" に書き換えます。
+12. scripts/default.js にハイパーリンクが付加されるので、[Ctrl] キーを押下しながらクリックします
+13. 画面右下にファイルが存在しないことを示すダイアログボックスが表示されるので、同ダイアログボックス内の [Create File] ボタンをクリックします
 
-13. scripts フォルダ内に default.js ファイルが作成され画面が開くので、以下のコードを張り付けます
+14. scripts フォルダ内に default.js ファイルが作成され画面が開くので、以下のコードを張り付けます
 
     ```
     (function(){
@@ -98,6 +127,7 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
     /*ここに演習 2 タスク 1 でドキュメントロード時のイベントハンドラを記述します。*/
     /*ここに演習 2 タスク 2 で Sprite クラス(関数) のインスタンスを格納するための変数オブジェクトを定義します*/
     /*ここに演習 6 タスク 1 で SNOWS_MOVING_CON オブジェクト変数を定義します。*/
+    /*ここに演習 8 で Rule クラスを定義します*/
     /*ここに演習 2 タスク 1 で loadAssets 関数を記述します。*/
     /*ここに演習 4 タスク 1 で setHandlers 関数を記述します。*/
     /*ここに演習 2 タスク 2 で getCenterPostion関数を記述します。*/
@@ -122,8 +152,12 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
 
 この段階では、default.html には Web ブラウザーで表示されるものはなにも記述していないので、同ファイルの body タグ内に以下のマークアップを張り付けます。
 ```
-<div style="width:320px;margin:0px auto;">
-     <canvas id="bg" width="320" height="480" style="background-color:black;"></canvas>
+<div style="width:375px;margin:0px auto;">
+    <div id="lifeBox" class="statusBox">LIFE:3</div>
+    <div id="centerBox">*SnowCatch</div>
+    <div id="scoreBox" class="statusBox" >SCORE:0</div>
+    <div style="clear: both;"></div>
+    <canvas id="bg" width="375" height="565" style="background-color:black;"></canvas>
 </div>
 ```
 > ### 備考 : Canvas のサイズ指定について
@@ -180,21 +214,18 @@ engrok の実行をを終了するにはキーボードの [Ctrl] + [C] キー�
 以上、本ハンズオンの準備は完了です。
 
 ### 目次
-<div style="text-align: right;">
-<a href="html5_game_HOL02.md">2. Canvas への画像のロード</a>
-<br>
-<a href="html5_game_HOL03.md">3. 基本的なアニメーションの実装</a>
-<br>
-<a href="html5_game_HOL04.md">4. 矢印キーとタッチによる制御</a>
-<br>
-<a href="html5_game_HOL05.md">5. 当たり判定の実装</a>
-<br>
-<a href="html5_game_HOL06.md">6. 複数 Sprite の生成とランダムな動作</a>
-<br>
-<a href="html5_game_HOL07.md">7. ヒット時の画像の切り替えと効果音の実装</a>
-<br>
-<a href="html5_game_HOL08.md">8. Microsoft Azure Web Apps へのデプロイ</a>
-</div>
+[2. Canvas への画像のロード](html5_game_HOL02.md)
+
+[3. 基本的なアニメーションの実装](html5_game_HOL03.md)
+
+[4. 矢印キーとタッチによる制御](html5_game_HOL04.md)
+
+[5. あたり判定](html5_game_HOL05.md)
+
+[6. 複数 Sprite の生成とランダムな動作](html5_game_HOL06.md)
+
+[7.ヒット時の画像の切り替えと効果音の実装](html5_game_HOL08.md)
+
 
 [0. 最初に戻る](README.md)
 

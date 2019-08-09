@@ -139,6 +139,7 @@
     ```
     sprite_snow.y = getRandomPosition(SNOWS_MOVING_CONF.count, 
                              SNOWS_MOVING_CONF.start_coefficient);
+    /*ここに演習 8 で gameRule.isCatched メソッドを追加します*/
     /*ここに演習 7 の手順 1 ステップ 8 でコードを追加します*/
     ```
 4. [Ctrl] + [S] キーを押下して作業内容を保存します。

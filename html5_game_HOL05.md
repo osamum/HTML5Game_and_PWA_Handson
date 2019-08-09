@@ -25,6 +25,7 @@
         ctx.font = 'bold 20px sans-serif';  
         ctx.fillStyle = 'red'; 
         ctx.fillText('ヒットしました', getCenterPostion(canvas.clientWidth, 140), 160);
+        /*ここに演習 8 で gameRule.catched 関数を記述し、上の 3 行は削除します*/ 
         /*ここに演習 7 のタスク 1 で画像を変更するコードを追加します*/ 
         /*ここに演習 7 タスク 2 手順 3 でオーディオを再生するコードを追加します*/ 
     }
@@ -45,14 +46,15 @@
 ここまでの default.js の完全なコードは以下になります。
 [⇒ HTML5 game and PWD HOL Ex5 sample code](https://gist.github.com/osamum/0acd43c12e00aa0811ab21b95b2b1d2d)
 
-<div style="text-align: right;">
-<a href="html5_game_HOL06.md">6. 複数 Sprite の生成とランダムな動作</a>
-<br>
-<a href="html5_game_HOL07.md">7. ヒット時の画像の切り替えと効果音の実装</a>
-<br>
-<a href="html5_game_HOL08.md">8. Microsoft Azure Web Apps へのデプロイ</a>
-</div>
 
+[6. 複数 Sprite の生成とランダムな動作](html5_game_HOL06.md)
+
+[7.ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
+
+[8. Microsoft Azure Web Apps へのデプロイ](html5_game_HOL08.md)
+
+
+ 
 [0. 最初に戻る](README.md)
 
 [1. 開発環境の準備とプロジェクトの作成](html5_game_HOL01.md)
@@ -62,3 +64,5 @@
 [3. 基本的なアニメーションの実装](html5_game_HOL03.md)
 
 [4. 矢印キーとタッチによる制御](html5_game_HOL04.md)
+
+

@@ -161,7 +161,8 @@
 
     [変更後]
     //当たり判定 
-    if(isHit(sprite_snow, sprite.snow_man)){hitJob(sprite_snow)};
+    if (isHit(sprite_snow, sprite.snow_man)&&(sprite_snow.imageIndex !== SNOW_PICTURE.clash)) 
+        { hitJob(sprite_snow) };
     ```
 11.  [Ctrl] + [S] キーを押下して作業内容を保存します。
 12. Visual Studio Code のターミナル画面から http-server を起動し、以下の URL にアクセスします。
