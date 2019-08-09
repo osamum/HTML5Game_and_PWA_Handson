@@ -44,6 +44,7 @@
             sprite_snow.x = i * sprite_snow.dx;
             /*演習 6 のタスク 2 ステップ 3 で
             sprite_snow.y を getRandomPosition 関数でセット*/
+            /*ここに演習 7 のタスク 2 でオーディオ再生用のコードを追加します*/
             sprite.snows.push(sprite_snow);
             sprite_snow = null;
         }

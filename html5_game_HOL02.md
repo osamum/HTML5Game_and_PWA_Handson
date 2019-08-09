@@ -81,7 +81,9 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
             this.x = 0; //表示位置 x 
             this.y = 0; //表示位置 y 
             this.dx = 0; //移動量 x 
-            this.dy = 0; //移動量 y 
+            this.dy = 0; //移動量 y
+            /*ここに演習 7 のタスク 2 でオーディオ再生用の
+           プロパティが追加されます*/ 
             /*ここに演習 7 のタスク 1 で Getter と Setter の
            コードが追加されます*/
             //Sprite を描画するメソッド 

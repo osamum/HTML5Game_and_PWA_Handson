@@ -131,6 +131,7 @@
     具体的には、renderFrame 関数内のコメント「/* ここに演習 7 のタスク 1 手順 8 でコードを追加します*/」を以下のコードに置き換えます。
     ```
         sprite_snow.imageIndex = SNOW_PICTURE.blue; 
+        /*ここに演習 7 のタスク 2 手順 4 でaudioPlayedプロパティをセットします*/
     }else {  
         if (loopCounter == SNOWS_MOVING_CONF.switch_count  
         && sprite_snow.imageIndex != SNOW_PICTURE.clash) { 
@@ -147,8 +148,9 @@
         ctx.font = 'bold 20px 'メイリオ', sans-serif;'; 
         ctx.fillStyle = 'red'; 
         ctx.fillText('ヒットしました', getCenterPostion(canvas.clientWidth, 140), 160); 
-        //追加したコード↓
+        //追加したコード ↓ (コメント「/*ここに演習 7 のタスク 1 で画像を変更するコードを追加します*/」と置き換える)
         sprite_snow.imageIndex = SNOW_PICTURE.clash;
+        /*ここに演習 7 タスク 2 手順 3 でオーディオを再生するコードを追加します*/
     }
     ```
 10. 前の手順での hitJob 関数の引数の変更に合わせ、renderFrame 関数中の hitJob 関数の呼び出しを以下のように変更します。
@@ -169,4 +171,61 @@
 
 ここまでの default.js の完全なコードは以下になります。
 
-[⇒ HTML5 game and PWD HOL Ex7 sample code](https://gist.github.com/osamum/50551b30d92be53a0958ba855d2b1896)
+[⇒ HTML5 game and PWD HOL Ex7 task 1 sample code](https://gist.github.com/osamum/50551b30d92be53a0958ba855d2b1896)
+
+## タスク 2 : あたり判定時のオーディオファイルの再生
+あたり判定時にオーディオファイルを再生する処理を実装します。
+1. Sprite のクラスに Audio オブジェクトのインスタンスを格納するための変数 audio と 繰り返し再生を避けるために再生済みを示すフラグ audioPlayed を定義します。
+    具体的には Sprite クラスを定義するコード内のコメント「/* ここに演習 7 のタスク 2 でオーディオ再生用のプロパティが追加されます*/ 」を以下のコードで置き換えます。
+    ```
+    this.audio = null; //Audio オブジェクト 
+    this.audioPlayed = false; //音が複数回鳴るのを防ぐ
+    ```
+2. 雪の結晶用の Sprite クラスのインスタンスが生成されるタイミングで Audio オブジェクトのインスタンス生成してプロパティに格納します。
+    コードの追加箇所は、loadAssets 関数内で img.snow オブジェクトの onload イベントハンドラを定義している以下の箇所です。コメント「/* ここに演習 7 のタスク 2 でオーディオ再生用のコードを追加します*/」を以下のコードに置き換えます。
+    ```
+    //Audio オブジェクトのインスタンスをセット 
+    sprite_snow.audio = new Audio('./audio/kiiiin1.mp3'); 
+    ```
+3. hitJob 関数にあたり判定時にオーディオファイルを再生するコードを追加します。
+    具体的には hitJob 関数内のコメント「/* ここに演習 7 タスク 2 手順 3 でオーディオを再生するコードを追加します*/」を以下のコードで置き換えます。
+    ```
+     if (!sprite_snow.audioPlayed) { 
+                sprite_snow.audio.play(); 
+                sprite_snow.audioPlayed = true; 
+     } 
+    ```
+4. 雪の結晶が画面から消え、表示位置をリセットするタイミングで再生済みフラグである audioPlayed プロパティを fase に変更します。
+    具体的には renderFrame 関数内のコメント「/* ここに演習 7 のタスク 2 手順 4 でaudioPlayedプロパティをセットします*/」を以下のコードで置き換えます。
+    ```
+    //オーディオ再生を停止 
+    sprite_snow.audio.pause(); 
+    //オーディオ再生済フラグのリセット 
+    sprite_snow.audioPlayed = false; 
+    ```
+5. [Ctrl] + [S] キーを押下して作業内容を保存します。
+6. Visual Studio Code のターミナル画面から http-server を起動し、以下の URL にアクセスします。
+    <p style="text-indent:2em">
+    <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
+7. 表示されたページの Canvas 部分をクリックし、雪だるまと当たった際にオーディオファイルが再生されることを確認してください。
+
+ここまでの default.js の完全なコードは以下になります。
+
+[⇒ HTML5 game and PWD HOL Ex7 task 2 sample code](https://gist.github.com/osamum/04a0b1df027e7e4b7b8a5c2dd0ba5d7f)
+
+
+### 目次
+
+[0. 最初に戻る](README.md)
+
+[1. 開発環境の準備とプロジェクトの作成](html5_game_HOL01.md)
+
+[2. Canvas への画像のロード](html5_game_HOL02.md)
+
+[3. 基本的なアニメーションの実装](html5_game_HOL03.md)
+
+[4. 矢印キーとタッチによる制御](html5_game_HOL04.md)
+
+[5. あたり判定](html5_game_HOL05.md)
+
+[6. 複数 Sprite の生成とランダムな動作](html5_game_HOL06.md)

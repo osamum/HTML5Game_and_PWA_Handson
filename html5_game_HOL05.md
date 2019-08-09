@@ -24,7 +24,9 @@
     function hitJob() {
         ctx.font = 'bold 20px sans-serif';  
         ctx.fillStyle = 'red'; 
-        ctx.fillText('ヒットしました', getCenterPostion(canvas.clientWidth, 140), 160); 
+        ctx.fillText('ヒットしました', getCenterPostion(canvas.clientWidth, 140), 160);
+        /*ここに演習 7 のタスク 1 で画像を変更するコードを追加します*/ 
+        /*ここに演習 7 タスク 2 手順 3 でオーディオを再生するコードを追加します*/ 
     }
     ```
 3. 画面の書き換えを行う renderFrame 関数内に isHit 関数を呼び出すコードを記述します。
