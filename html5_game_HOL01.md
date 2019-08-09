@@ -171,16 +171,18 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
 1. Visual Studio Code のメニュー **[Terminal] - [New Terminal]** をクリックします
 2. 画面下部にターミナルウインドウが表示されるので、同ウィンドウ内で以下のコマンドを実行してシェルを Command Prompt に変更します
 
-    <p style="text-indent:2em;font-weight:bold;">cmd</p>
+    **cmd**
 
 3. ターミナルウインドウで以下のコマンドを実行します
-    <p style="text-indent:2em">http-server</p>
+    **http-server**
 4. Web ブラウザーを起動し、以下の URL にアクセスします
     <p style="text-indent:2em">
-    <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
+    <a href="http://127.0.0.1:8080/default.html" target="_blank">http://127.0.0.1:8080/default.html</a></p>
 
 
 Web ブラウザーに黒い四角が表示されたら完了です。
+
+<img src="images/ex2_result.png" width="250">
 
 http-server のサービスを終了するにはキーボードの [Ctrl] + [C] キーをクリックします。
 
@@ -192,14 +194,14 @@ ngrok を [ダウンロード](https://ngrok.com/download) して ngrok.exe を�
 ngrok を使用してインターネットから前の手順で作成した default.html にアクセスするには以下の手順を実行します。
 
 1. Visual Studio Code の ターミナルウインドウで以下のコマンドを実行します
-    <p style="text-indent:2em">http-server</p>
+    **http-server**
 
 2. Web ブラウザーを起動し、以下の URL にアクセスして、http-server が正常にコンテンツをホストしていることを確認します
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
 3. コマンドプロンプトを起動し、cd コマンドで作業ディレクトリを ngrok.exe が配置されているディレクトリに切り替えます
 4. 以下のコマンドを実行します
-    <p style="text-indent:2em">ngrok http 8080 --host-header=localhost</p>
+    **ngrok http 8080 --host-header=localhost**
 5. エコーされた内容の Foewarding の横に表示された http、もしくは https のドメイン名を使用してアクセスします
 
     <img src="images/engrok.png">
