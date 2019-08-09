@@ -50,6 +50,8 @@
 実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex5/default.html)をクリックしてください。
 
 
+### 目次
+
 [6. 複数 Sprite の生成とランダムな動作](html5_game_HOL06.md)
 
 [7.ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
