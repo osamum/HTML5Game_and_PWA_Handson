@@ -86,7 +86,7 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
 
 9. default.html の編集画面で、title タグの下で **link** とタイプして [Tab]キーを押下すると、link タグが追加されるので href 属性の値を "./css/default.css" に書き換えます。
 
-     css フォルダ内に default.css ファイルが作成され画面が開くので、以下のマークアップを張り付けます。
+     css フォルダ内に default.css ファイルが作成され画面が開くので、以下のマークアップを張り付け、[Ctrl] + [S] キーを押下して保存します。
     ```
     body {
         margin: 0;
@@ -94,7 +94,7 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
         user-select: none;
         -webkit-touch-callout: none;
     }
-    //加点や失点を表示するボックス
+    /*加点や失点を表示するボックス*/
     .statusBox {
         width: 134px;
         text-align: center;
@@ -104,7 +104,7 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
         color:skyblue;
         padding: 3px;
     }
-    //タイトルを表示するボックス
+    /*タイトルを表示するボックス*/
     #centerBox {
         width: 89px;
         background-color: black;
@@ -115,12 +115,12 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
         padding: 3px;
     }
     ```
-10. default.html の編集画面で、link タグの下で **scr** とタイプすると、入手候補がリスト表示されるので、リストから script:scr を選択します。なお、選択は矢印キーと [Tab] キーで行います
+10. default.html の編集画面で、link タグの下で **script** とタイプすると、入手候補がリスト表示されるので、リストから script:scr を選択します。なお、選択は矢印キーと [Tab] キーで行います
 11. script タグが挿入されるので、scr 属性の値を **"scripts/default.js"** に書き換えます。
 12. scripts/default.js にハイパーリンクが付加されるので、[Ctrl] キーを押下しながらクリックします
 13. 画面右下にファイルが存在しないことを示すダイアログボックスが表示されるので、同ダイアログボックス内の [Create File] ボタンをクリックします
 
-14. scripts フォルダ内に default.js ファイルが作成され画面が開くので、以下のコードを張り付けます
+14. scripts フォルダ内に default.js ファイルが作成され画面が開くので、以下のコードを張り付け、[Ctrl] + [S] キーを押下して保存します。
 
     ```
     (function(){
@@ -168,10 +168,10 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
 
 [Ctrl] + [S] キーを押下して変更を保存したら以下の手順で Web サーバーを起動し、Web ブラウザーからアクセスします。
 
-1. Visual Studio Code のメニュー [Terminal] - [New Terminal] をクリックします
+1. Visual Studio Code のメニュー **[Terminal] - [New Terminal]** をクリックします
 2. 画面下部にターミナルウインドウが表示されるので、同ウィンドウ内で以下のコマンドを実行してシェルを Command Prompt に変更します
 
-    <p style="text-indent:2em">cmd</p>
+    <p style="text-indent:2em;font-weight:bold;">cmd</p>
 
 3. ターミナルウインドウで以下のコマンドを実行します
     <p style="text-indent:2em">http-server</p>
