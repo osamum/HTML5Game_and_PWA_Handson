@@ -44,7 +44,7 @@ function renderFrame() {
 
 [⇒ HTML5 game and PWD HOL Ex3 sample code](https://gist.github.com/osamum/1dedd598464c4dce90a3b897082becfb)
 
-実際のコードの動作を確認したい場合は<a src="https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex3/default.html" target="_blank">ここ</a>をクリックしてください。
+実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex3/default.html)をクリックしてください。
 
 ### 目次
 [4. 矢印キーとタッチによる制御](html5_game_HOL04.md)
