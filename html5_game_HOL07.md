@@ -49,21 +49,16 @@
     this.width = (sp_width)?sp_width : img.width; 
     ```
 4.  **Sprite** クラスにプロパティが設定されたときに動作する **Getter** と **Setter** を追加します。
-    **Sprite** クラス内のコメント「**/* ここに演習 7 のタスク 1 で Getter と Setter のコードが追加されます*/**」を以下のコードで置き換えます。
+    **Sprite** クラス内のコメント「**/* ここに演習 7 のタスク 1 で Getter と Setter のコードを追加します*/**」を以下のコードで置き換えます。
     ```
-    let _offset_x_pos = 0; 
-    let that = this; 
     //使用するインデックスを設定するための Setter/Getter 
-    let _imageIndex = 0; 
-    Object.defineProperty(this, 'imageIndex', { 
-        get: function () { 
-            return _imageIndex; 
-        }, 
-        set: function (val) { 
-            _imageIndex = val; 
-            _offset_x_pos = that.width * _imageIndex; 
-        } 
-    }); 
+    get imageIndex(){
+        return this._imageIndex;
+    }
+    set imageIndex(val){
+        this._imageIndex = val;
+        this._offset_x_pos = this.width * this._imageIndex;
+    }
     ```
 5. **Sprite** クラス内の **draw** メソッドを以下のように書き換えます。
     ```
@@ -75,10 +70,10 @@
 
     [変更後]
     //Sprite を描画するメソッド 
-    this.draw = ()=> { 
-        ctx.drawImage(img, _offset_x_pos, 0, that.width,that.height, 
-                         that.x, that.y, that.width, that.height); 
-    }; 
+    this.draw = () => {
+        ctx.drawImage(img,this._offset_x_pos, 0, this.width, this.height,
+            this.x, this.y, this.width, this.height);
+        };
     ```
 6. Sprite クラスのコンストラクタの引数の変更に合わせ **loadAssets** 関数内で **Sprite** クラスのインスタンスを生成している箇所を各々以下のように書き換えます。画像のファイルが **snow.png** から **sp_snow.png** に変更されているので注意してください。
     ```
@@ -179,7 +174,7 @@
 ## タスク 2 : あたり判定時のオーディオファイルの再生
 あたり判定時にオーディオファイルを再生する処理を実装します。
 1. **Sprite** のクラスに Audio オブジェクトのインスタンスを格納するための変数 **audio** と 繰り返し再生を避けるために再生済みを示すフラグ **audioPlayed** を定義します。
-    具体的には **Sprite** クラスを定義するコード内のコメント「**/* ここに演習 7 のタスク 2 でオーディオ再生用のプロパティが追加されます*/** 」を以下のコードで置き換えます。
+    具体的には **Sprite** クラスを定義するコード内のコメント「**/* ここに演習 7 のタスク 2 でオーディオ再生用のプロパティを追加します*/** 」を以下のコードで置き換えます。
     ```
     this.audio = null; //Audio オブジェクト 
     this.audioPlayed = false; //音が複数回鳴るのを防ぐ
@@ -214,7 +209,80 @@
 
 ここまでの default.js の完全なコードは以下になります。
 
-[⇒ HTML5 game and PWD HOL Ex7 task 2 sample code](https://gist.github.com/osamum/04a0b1df027e7e4b7b8a5c2dd0ba5d7f)
+* [**HTML5 game and PWD HOL Ex7 task 2 sample code**](https://gist.github.com/osamum/04a0b1df027e7e4b7b8a5c2dd0ba5d7f)
+
+⇒ 次の「[**8.  ルールの追加**](html5_game_HOL08.md)」に進む
+
+# 解説
+## スプライトのメリット
+ハンズオンの手順の中でも解説していますが、今回の**スプライト**という手法はゲーム内のキャラクターを表す**Sprite**ではなく、画像処理における重ね合わせのスプライトでもなく、**一枚の画像から該当の絵が書かれている箇所を抜き出して使用する方法**の**スプライト**です。
+<img src="images/enemy_sprits.png">
+
+スプライトを使用すると、使用する複数の画像が 1 つのファイルにまとまっているため Web サーバーとの通信を減らすことが出来ます。
+
+HTTP のリクエストやレスポンスには、ブラザー内の表示されるデータの他に、HTTP 通信のためのさまざまな付加情報が含まれています。この情報はリクエスト毎にやり取りされるので、使用するファイルの数に比例して増えていきます。しかも、それらの情報は同一の場所に配置されているファイルであればほとんど同じものです。使用する画像をまとめることにより、これらの情報やコネクション数なども減らすことができるので、通信にかかるコストも減りパフォーマンスも向上します。またキャッシュも効きやすくなり、今回のようなゲームの使用する場合は、画像の読み込み完了のチェックが減るため管理が楽になります。
+
+## Canvas でのスプライトの実装
+[Canvas](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/canvas) では、読み込んだ画像を表示する際に [context.drawImage](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage) メソッドを使用していますが、この context.drawImage メソッドの引数を適切に指定することにより元画像から任意の位置の任意のサイズの領域を切り出すことができます。具体的な書式は以下のとおりです。
+```
+[書式] 
+context.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
+[引数] 
+image : 元のイメージ 
+sx : 切り出す画像の左上の x 座 
+sy : 切り出す画像の左上の y 座標 
+sw : 切り出す画像の幅 
+sh : 切り出す画像の高さ 
+dx : Canvas 上で描画する画像の左上の x 座標 
+dy : Canvas 上で描画する画像の左上の y 座標 
+dw : Canvas 上で描画する画像の幅 
+dh : Canvas 上で描画する画像の高さ 
+```
+これを使用してスプライトを実装することができます。
+
+しかし、この書式のまま使用するとなると、毎回切り出す座標の位置や領域のサイズを数値で指定しなければならないため面倒です。
+そこで、このハンズオンのゲームでは、drawImage メソッドを以前定義した Sprite クラスの中で使用し、外部にはもっと引数が少なく使いやすい draw メソッドを作って公開するようにします。
+
+## setter と getter
+既存の Sprite クラスのプロパティは、以下のように単に外部からアクセス可能な変数を宣言しているにすぎません。
+```
+class Sprite {
+    constructor(img) {
+	    this.x = 0; //表示位置 x 
+	    this.y = 0; //表示位置 y 
+```
+これらはの変数は、値を設定したり参照したりはできますが、値を設定する際、もしくは値を取り出す際に何らかの処理を行うことはできません。
+
+たとえば、画像を切り替えるための imageIndex プロパティをこの方式で実装したとしても、外部から指定された数値は保持されるものの、画像ファイルの指定位置を指定するという処理を行うことはできません。解決策としては、プロパティではなくメソッドとして、例えば setImageIndex 関数として実装するという方法も考えられますが、imageIndex というプロパティがありながら、それに値を設定する際はわざわざメソッドを使用する必要があるのは実装方法として美しくありません。
+
+プロパティに値を設定する際、あるいは値を参照する際になんらかの処理を行いたい場合は、**setter** メソッドと **getter** メソッドを使用します。これらのメソッドはプロパティの値の設定/参照の際の処理を実装することができます。
+
+JavaScript における setter と getter の指定はいくつか方法があり、ECMA Script 2015(ES6) 以前は以下のような **Object.defineProperty** メソッドなどを使用していました。 
+```
+//使用するインデックスを設定するための Setter/Getter 
+let _imageIndex = 0;
+Object.defineProperty(this, 'imageIndex', {
+    get: function() {
+        return _imageIndex;
+    },
+    set: function(val) {
+        _imageIndex = val;
+        _offset_x_pos = that.width * _imageIndex;
+    }
+});
+```
+上記の方法は現在でも使用できますが、ECMA Script 2015 からはクラス内に以下のように記述できます。
+```
+//使用するインデックスを設定するための Setter/Getter 
+get imageIndex(){
+    return this._imageIndex;
+}
+set imageIndex(val){
+    this._imageIndex = val;
+    this._offset_x_pos = this.width * this._imageIndex;
+}
+```
+詳しくはハンズオンコードを参照してください。
 
 
 ### 目次

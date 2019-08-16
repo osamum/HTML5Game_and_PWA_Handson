@@ -82,15 +82,17 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
             this.y = 0; //表示位置 y 
             this.dx = 0; //移動量 x 
             this.dy = 0; //移動量 y
+            this._imageIndex = 0;
+            this._offset_x_pos = 0;
             /*ここに演習 7 のタスク 2 でオーディオ再生用の
-           プロパティが追加されます*/ 
-            /*ここに演習 7 のタスク 1 で Getter と Setter の
-           コードが追加されます*/
+           プロパティを追加します*/ 
             //Sprite を描画するメソッド 
             this.draw = ()=> {
                 ctx.drawImage(img, this.x, this.y);
             };
         }
+        /*ここに演習 7 のタスク 1 で Getter と Setter の
+           コードを追加します*/
     }
     ```
     コードを張り付けてインデントが崩れたら **[Alt] + [Shift] + [F]** キーを押下して体裁を整えます。
