@@ -137,7 +137,7 @@
 
 ここまでの default.js の完全なコードは以下になります。
 
-[⇒ HTML5 game and PWD HOL Ex4 sample code](https://gist.github.com/osamum/fb7b00f4d8b3d23e68a36bbbf606a767)
+[HTML5 game and PWD HOL Ex4 sample code](https://gist.github.com/osamum/fb7b00f4d8b3d23e68a36bbbf606a767)
 
 実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_2/default.html)をクリックしてください。
 
