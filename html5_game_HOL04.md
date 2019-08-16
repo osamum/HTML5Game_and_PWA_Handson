@@ -141,6 +141,59 @@
 
 実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_2/default.html)をクリックしてください。
 
+⇒ 次の「[**5. 当たり判定**](html5_game_HOL05.md)」に進む
+
+# 解説
+## デバイスからのイベントの取得
+キーボードや、タッチ対応の画面などからの入力を取得するには、それを受け取るためのイベントハンドラーを実装する必要があります。
+
+キーボードのキーについてのアクションは kdown、keyup 等のイベントで、タッチは touchstart、touchend 等のイベントで取得することができるので、これらを使用してイベントハンドラーを定義します。
+
+## キーイベントの取得と判断
+キーボードのキーを押下した際のアクションは、keydown イベントで取得することができますが、押されたキーを判断し、必要なキーのアクションを必要な処理に割り当てる必要があります。押されたキーを示すキーコードは、以下のようにイベントハンドラに渡された引数の which プロパティで取得できるので、これを使用して押されたキーの種別を判断することができます。
+```
+document.addEventListener('keydown', function (evnt) { 
+    let keyCode = evnt.which; 
+}; 
+```
+このハンズオンのゲームでは、雪だるまを動かすのに使用するキーは、カーソルキーの左と右です。キーコードは数字ですが、数字そのままだとコードを読んだ時にわかりづらいので、以下のようにキーの名前をつけた変数を定義し、値をセットしています。
+```
+//矢印キーのコード 
+let KEY_CODE = {
+    left : 37, right:39
+};
+```
+## 可動域の設定 ##
+雪だるま を動かす際、Canvas からはみ出さないように、横位置 (X) の最大値を設定します。移動できる X の最大値は画像が Canvas の右端についた状態となるので、以下のような計算式で求めることができます。
+
+**X = Canvas の幅 - 雪だるまの画像の幅**
+
+この演習では getRightLimitPosition 関数として実装しました。
+
+```
+//Player (雪だるま)を動かせる右の限界位置)
+function getRightLimitPosition(containerWidth, itemWidth) { 
+        return containerWidth - itemWidth; 
+}
+```
+## タッチイベントの取得と判断
+タッチデバイスからのイベントは touchstart、touchend、touchmove イベントなどで取得することができます。雪だるまの動きをどう左右に割り振るかは、Canvas をスワイプする方向にあわせます。
+
+このハンズオンのゲームでは、touchstart イベントでタッチ開始時の位置を取得し、これを基準に touchmove イベントの位置から移動量を計算し、雪だるまを移動させています。
+```
+//Canvas へのタッチイベント設定 
+canvas.addEventListener('touchstart', (evnt) => {
+    touchStartPos = evnt.touches[0].clientX;
+});
+//左右のスワイプ量を雪だるまの移動量に  
+canvas.addEventListener('touchmove', (evnt) => {
+    key_value = Math.round((evnt.touches[0].clientX - touchStartPos) / 10);
+});
+//雪だるまが進みっぱなしにならないように、 タッチが完了したら 0 に  
+canvas.addEventListener('touchend', (evnt) => {
+    key_value = 0;
+});
+```
 
 ### 目次
 

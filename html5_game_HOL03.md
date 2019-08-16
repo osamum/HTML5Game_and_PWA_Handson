@@ -46,7 +46,7 @@ function renderFrame() {
 実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex3/default.html)をクリックしてください。
 
 
-⇒ 次の「[4. 矢印キーとタッチによる制御](html5_game_HOL04.md)」に進む
+⇒ 次の「[**4. 矢印キーとタッチによる制御**](html5_game_HOL04.md)」に進む
 
 # 解説
 ## Canvas のアニメーション
