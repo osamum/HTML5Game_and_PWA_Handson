@@ -49,6 +49,29 @@
 
 実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex5/default.html)をクリックしてください。
 
+⇒ 次の「[**6. 複数 Sprite の生成とランダムな動作**](html5_game_HOL06.md)」に進む
+
+# 解説
+## 当たり判定
+「当たり判定」とは、文字どおりゲームにおいてキャラクター同士が衝突したかどうかを判断するもので、シューティングゲームのような、ユーザーがゲーム内のキャラクターを操作するタイプのゲームでは不可欠なものです。
+
+当たり判定の方法はいろいろあり、形状が複雑なものに対し厳密に行おうとすると非常に大変です。また、実際のそこまでは必要がないということもあります。例えば、以下の図のアミカケの部分は、当たり判定をする単純な 3 つのパターンを示してしますが、X と Y の値で判断できる 1 や 2 が簡単です。
+
+<img src='images/hit_sprits.png' width="300px">
+
+このハンズオンのゲームでは、最も単純な 1 のタイプで、2 つの画像が重なったら当たりと判定する方法で実装しています。
+
+<img src='images/hit_box.png' width="300px">
+
+この判断は以下の式で行うことができます。
+```
+当たり/はずれ = ((targetA.x <= targetB.x and targetA.width + targetA.x >= targetB.x) 
+     or  (targetA.x >= targetB.x and targetB.x + targetB.width >= targetA.x) ) 
+    and ( (targetA.y <= targetB.y and targetA.height + targetA.y >= targetB.y) 
+    or (targetA.y >= targetB.y and targetB.y + targetB.height >= targetA.y))
+```
+このハンズオンのゲームでは、isHit 関数として実装していますのでデバッガをアタッチするなどして動作を確認してください。
+
 
 ### 目次
 
