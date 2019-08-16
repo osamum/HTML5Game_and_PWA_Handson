@@ -211,7 +211,7 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
 
 * [HTML5 game and PWD HOL Ex2 sample code](https://gist.github.com/osamum/754de15ab68f976b36e0b8d8243d9321)
 
-⇒ 次の「[3. 基本的なアニメーションの実装](html5_game_HOL03.md)」に進む
+⇒ 次の「[**3. 基本的なアニメーションの実装**](html5_game_HOL03.md)」に進む
 
 # 解説
 ## プログラムのエントリーポイントについて
@@ -269,7 +269,7 @@ ctx.drawImage(img_snow, 0, 0);
 
 画像を Canvas の中央に表示するための X 座標は以下の式で求めることができます。
 
-x = (Canvas の幅 / 2)  - (画像の幅 /2 )
+x = (Canvas の幅/2)  - (画像の幅/2 )
 
 この式を使用して画像を Canvas の中央に表示するための getCenterPostion 関数を以下のように定義しています。
 ```
