@@ -169,7 +169,7 @@
 
 ここまでの default.js の完全なコードは以下になります。
 
-[⇒ HTML5 game and PWD HOL Ex7 task 1 sample code](https://gist.github.com/osamum/50551b30d92be53a0958ba855d2b1896)
+* [**HTML5 game and PWD HOL Ex7 task 1 sample code**](https://gist.github.com/osamum/50551b30d92be53a0958ba855d2b1896)
 
 ## タスク 2 : あたり判定時のオーディオファイルの再生
 あたり判定時にオーディオファイルを再生する処理を実装します。
@@ -271,7 +271,7 @@ Object.defineProperty(this, 'imageIndex', {
     }
 });
 ```
-上記の方法は現在でも使用できますが、ECMA Script 2015 からはクラス内に以下のように記述できます。
+上記の方法は現在でも使用できますが、ECMA Script 2015 からはクラス内に以下のようにシンプルに記述できます。
 ```
 //使用するインデックスを設定するための Setter/Getter 
 get imageIndex(){
@@ -282,7 +282,7 @@ set imageIndex(val){
     this._offset_x_pos = this.width * this._imageIndex;
 }
 ```
-詳しくはハンズオンコードを参照してください。
+詳しくはハンズオンのコードを参照してください。
 
 
 ### 目次

@@ -49,7 +49,7 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
         /*画像読み込み完了の Canvas に 
         画像を表示するメソッドを記述 */
         img.snow.onload = ()=> { 
-            /*ここは演習 2 タスク 2 でハンドラ内のコードを書き換えます*/
+            /*ここは演習 2 タスク 2 でハンドラ内のコードを完全に書き換えます*/
             //canvas 上で image を描画  
             ctx.drawImage(img.snow, 0, 0);  
         }; 
@@ -158,8 +158,9 @@ JavaScript を使用し、default.html 上の Canvas に img フォルダ内の�
         //画像を引数に Sprite クラスのインスタンスを生成  
         sprite.snow = new Sprite(img.snow);
 
-        //以下の行が書き換え箇所です
+        //以下の行が書き換えた箇所です
         sprite.snow.x = getCenterPostion(canvas.clientWidth, sprite.snow.width);
+        
         sprite.snow.y = 0;
         //Sprite オブジェクトに定義した draw メソッドで描画
         sprite.snow.draw(); 
@@ -211,7 +212,7 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
 
 ここまでの default.js の完全なコードは以下になります。
 
-* [HTML5 game and PWD HOL Ex2 sample code](https://gist.github.com/osamum/754de15ab68f976b36e0b8d8243d9321)
+* [**HTML5 game and PWD HOL Ex2 sample code**](https://gist.github.com/osamum/2939279001f184abb139bdf041667ac6)
 
 ⇒ 次の「[**3. 基本的なアニメーションの実装**](html5_game_HOL03.md)」に進む
 

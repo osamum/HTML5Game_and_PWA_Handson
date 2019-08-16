@@ -78,7 +78,7 @@
     gameRule.isCatched(sprite_snow.imageIndex);
     ```
 5. gameRule オブジェクトは失点をカウントしており、失点のたびに life プロパティが減算されています。life プロパティの値が 0 になったときにゲームオーバーとみなし全体のアニメーション処理を停止させます。
-    renderFrame 関数の最後の行を以下のように書き換えます
+    **renderFrame** 関数の最後の行を以下のように書き換えます
     ```
     [変更前]
     requestId = window.requestAnimationFrame(renderFrame);
@@ -95,7 +95,7 @@
 
 ここまでの default.js の完全なコードは以下になります。
 
-[⇒ HTML5 game and PWD HOL Ex8 sample code](https://gist.github.com/osamum/1f03fa48e7a2acf66aaabe61d6221859)
+* [**HTML5 game and PWD HOL Ex8 sample code**](https://gist.github.com/osamum/1f03fa48e7a2acf66aaabe61d6221859)
 
 
 [0. 最初に戻る](README.md)
