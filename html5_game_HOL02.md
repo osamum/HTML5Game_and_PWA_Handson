@@ -211,6 +211,72 @@ Canvas の下端中央に雪だるまの Sprite を追加します。処理的�
 
 [⇒ HTML5 game and PWD HOL Ex2 sample code](https://gist.github.com/osamum/754de15ab68f976b36e0b8d8243d9321)
 
+# 解説
+## プログラムのエントリーポイントについて
+プログラムにおけるエントリーポイントとは、プログラムを実行するうえで最初に実行される位置を意味します。
+
+Web ブラウザーで動作するアプリケーションの多くは、HTML でマークアップされたボタンやテキストボックスといった DOM(Document Object Model) のインスタンスにアクセスする必要があるため、ページの読み込み完了時に発生するイベントをエントリーポイントとしています。
+
+このエントリーポイントには、ページの準備が完了した際に発生するイベントとして、windows オブジェクトの onload イベントが古くから使用されてきましたが、HTML5 が登場してからは DOMContentLoaded イベントを使用することができます。
+
+DOMContentLoaded イベントは、window.onload イベントと同じく、参照している CSS ファイルなどが読み込まれ、準備完了となった際に発生しますが、DOMContentLoaded イベントが発生するのは純粋に DOM のロード完了についてのみであり、window.onload イベントのように画像ファイルのロード完了までは待ちません。そのため DOMContentLoaded イベントを使用したほうが迅速に DOM への処理を開始することができます。今回の場合は当てはまりませんが、とくに画像の読み込みが遅いページでは、イベント発生までの時間が大きく異なります。
+このへんの詳細については以下のドキュメントをご参照ください。
+* [アプリのライフサイクルの最適化 (HTML)](https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh781221(v=win.10))
+
+このハンズオンのゲームでは、以下のように **DOMContentLoaded** イベントハンドラ内でアプリケーションの動作に必要な画像などのアセット類をロードする loadAssets 関数を以下のように呼び出しています。
+
+```
+/DOM のロードが完了したら実行 
+document.addEventListener("DOMContentLoaded", ()=> { 
+        loadAssets(); 
+});
+```
+
+## ゲーム画面への画像のロード
+このハンズオンのゲームでは、ゲーム画面への画像のロードは、あらかじめ用意した画像をロードして行っています。
+
+実際の処理としては、画像をいったん Image オブジェクトに読み込み、Canvas に描画します。しかし、Image オブジェクトの画像の読み込みが完了する前だと失敗するので、Image オブジェクトの onload イベントハンドラで読み込みの完了を待ってから行っています。
+
+実際のコードは以下の通りです。
+```
+//HTML上の canvas エレメントのインスタンスを取得  
+canvas = document.getElementById('bg'); 
+//2D コンテキストを取得 
+ctx = canvas.getContext('2d'); 
+//image オブジェクトのインスタンスを生成 
+img_snow = new Image(); 
+//image オブジェクトに画像をロード 
+img_snow.src = '/img/snow.png'; 
+/*画像読み込み完了のイベントハンドラーに Canvas に 
+   画像を表示するメソッドを記述 */ 
+img_snow.onload = ()=> { 
+   //canvas 上で image を描画 
+    ctx.drawImage(img_snow, 0, 0);  
+};
+```
+Canvas はビットマップの描画ができるので、キャラクター自体を JavaScript で描くこともできますが、その方法だとコード量が増え、処理も複雑になるため、リアルタイム レンダリングが必要な場合以外は工数に見合わないことがほとんどです。
+
+## 画像の表示位置の調整
+画像の表示位置は、context オブジェクトの drawImage メソッドの引数で指定します。
+このコードでは context オブジェクトは変数 ctx に格納されており、img_snow.onload  イベントハンドラ内で drawImage  メソッドを呼び出していますがタスク 1 では、横位置(X 座標)、縦位置(Y 座標) を指定する第一、第二引数が両方とも 0 であるため画像が左上端に表示されます。
+```
+//canvas 上で image を描画   
+ctx.drawImage(img_snow, 0, 0); 
+```
+これを画面の中央に表示するようにしてみましょう。
+
+画像を Canvas の中央に表示するための X 座標は以下の式で求めることができます。
+
+x = (Canvas の幅 / 2)  - (画像の幅 /2 )
+
+この式を使用して画像を Canvas の中央に表示するための getCenterPostion 関数を以下のように定義しています。
+```
+//中央の Left 位置を求める関数 
+function getCenterPostion(containerWidth, itemWidth) { 
+    return (containerWidth/2)-(itemWidth/2); 
+};
+```
+
 ### 目次
 [3. 基本的なアニメーションの実装](html5_game_HOL03.md)
 
