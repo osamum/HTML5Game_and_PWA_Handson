@@ -84,8 +84,8 @@
             //sprite_snow の y 値(縦位置) が canvas からはみ出たら先頭に戻す 
             if (sprite_snow.y > canvas.clientHeight) {
                 /*ここに演習 8 で gameRule.isCatched メソッドを追加します*/
-                /* ここに演習 7 のタスク 1 手順 8 でコードを追加します*/
                 sprite_snow.y = 0;
+                /* ここに演習 7 のタスク 1 手順 8 でコードを追加します*/
             };
             //sprite_snow の y 値を増分 
             sprite_snow.y += sprite_snow.dy;

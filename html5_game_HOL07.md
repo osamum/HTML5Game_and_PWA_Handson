@@ -25,7 +25,7 @@
     //画面の書き換え数をカウントする 
     let loopCounter = 0;
     ```
-3. スプライトを使用して画像をインデックスで指定できるように Sprite クラスの **constructor** の引数と、**this.height**、**this.width** の設定を以下のように変更します。
+3. スプライトを使用して画像をインデックスで指定できるように **Sprite** クラスの **constructor** の引数と、**this.height**、**this.width** の設定を以下のように変更します。
 
     constructor の引数
     ```
@@ -49,7 +49,7 @@
     this.width = (sp_width)?sp_width : img.width; 
     ```
 4.  **Sprite** クラスにプロパティが設定されたときに動作する **Getter** と **Setter** を追加します。
-    **Sprite** クラス内のコメント「**/* ここに演習 7 のタスク 1 で Getter と Setter のコードが追加されます*/++」を以下のコードで置き換えます。
+    **Sprite** クラス内のコメント「**/* ここに演習 7 のタスク 1 で Getter と Setter のコードが追加されます*/**」を以下のコードで置き換えます。
     ```
     let _offset_x_pos = 0; 
     let that = this; 
@@ -80,7 +80,7 @@
                          that.x, that.y, that.width, that.height); 
     }; 
     ```
-6. **Sprite** クラスのコンストラクタの引数の変更に合わせ **loadAssets** 関数内で **Sprite** クラスのインスタンスを生成している箇所を各々以下のように書き換えます。画像のファイルが **snow.png** から **sp_snow.png** に変更されているので注意してください。
+6. Sprite クラスのコンストラクタの引数の変更に合わせ **loadAssets** 関数内で **Sprite** クラスのインスタンスを生成している箇所を各々以下のように書き換えます。画像のファイルが **snow.png** から **sp_snow.png** に変更されているので注意してください。
     ```
     //image オブジェクトに画像をロード  
     //変更前 : img.snow.src = './img/snow.png';
@@ -94,6 +94,7 @@
             //変更前 : let sprite_snow = new Sprite(img.snow);
             //変更後 ↓
             let sprite_snow = new Sprite(img.snow, SNOW_SIZE.width, SNOW_SIZE.height); 
+
             sprite_snow.dy = 1; 
             sprite_snow.dx = SNOWS_MOVING_CONF.neighor_distance; 
             sprite_snow.x = i * sprite_snow.dx; 
@@ -111,6 +112,7 @@
         //変更後 ↓
         sprite.snow_man = new Sprite(img.snow_man, SNOW_MAN_SIZE.width, 
                                                  SNOW_MAN_SIZE.height);
+                                                 
         sprite.snow_man.x = getCenterPostion(canvas.clientWidth, img.snow_man.width); 
         //雪だるま画像は、表示領域の底辺に画像の底辺がつくように 
         sprite.snow_man.y = canvas.clientHeight - img.snow_man.height;
@@ -153,7 +155,7 @@
         /*ここに演習 7 タスク 2 手順 3 でオーディオを再生するコードを追加します*/
     }
     ```
-10. 前の手順での **hitJob** 関数の引数の変更に合わせ、**renderFrame** 関数中の **hitJob** 関数の呼び出しを以下のように変更します。
+10. 前の手順での hitJob 関数の引数の変更に合わせ、**renderFrame** 関数中の **hitJob** 関数の呼び出しを以下のように変更します。
     ```
     [変更前]
     //当たり判定 
