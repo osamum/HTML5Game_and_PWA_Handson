@@ -79,7 +79,7 @@
 
 [7.ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
 
-[8. Microsoft Azure Web Apps へのデプロイ](html5_game_HOL08.md)
+[8. ルールの追加](html5_game_HOL08.md)
 
 
  

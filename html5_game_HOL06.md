@@ -1,7 +1,7 @@
 # 演習 6 : 複数の Sprite の生成とランダム処理
 この演習では、降ってくる雪の結晶を増やし、それら生成された複数の雪の結晶の実態 (インスタンス) を制御する機能を実装します。
 ## タスク 1  : Sprite オブジェクトの定義
-このゲームでは、ゲーム内で扱うキャラクターを **Sprite** というクラスからインスタンス(実体)を生成して使用しています。インスタンスは、元となるひとつのクラスの定義からいくつも生成することができ、それぞれに状態を保持させることができまかす。この性質を利用して、雪の結晶を複数表示して制御します。
+このゲームでは、ゲーム内で扱うキャラクターを **Sprite** という**クラス**から**インスタンス**(実体)を生成して使用しています。インスタンスは、元となるひとつのクラスの定義からいくつも生成することができ、それぞれに状態を保持させることができまかす。この性質を利用して、雪の結晶を複数表示して制御します。
 
 具体的な手順は以下のとおりです。
 1. default.js の前半にあるオブジェクト変数 **sprite** の定義の中の **snow: null**, を以下のように **snows:[],** に書き換えます。
@@ -116,7 +116,7 @@
 
 ここまでの default.js の完全なコードは以下になります。
 
-[⇒ HTML5 game and PWD HOL Ex6 task1 sample code](https://gist.github.com/osamum/047b98b27fa209af9b128afa40c026da)
+[**HTML5 game and PWD HOL Ex6 task1 sample code**](https://gist.github.com/osamum/047b98b27fa209af9b128afa40c026da)
 
 実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex6_1/default.html)をクリックしてください。
 
@@ -160,7 +160,7 @@
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
 7. 表示されたページの Canvas 部分をクリックし、雪の結晶がランダムに降ってくることを確認してください。
 
-[⇒ HTML5 game and PWD HOL Ex6 task2 sample code](https://gist.github.com/osamum/a5079656701f528327b48b4a9d73dbf4)
+[**HTML5 game and PWD HOL Ex6 task2 sample code**](https://gist.github.com/osamum/a5079656701f528327b48b4a9d73dbf4)
 
 実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex6_2/default.html)をクリックしてください。
 
@@ -200,7 +200,41 @@
 
 ここまでの default.js の完全なコードは以下になります。
 
-[⇒ HTML5 game and PWD HOL Ex6 task3 sample code](https://gist.github.com/osamum/09b9087313a9ccf035f3a94bc362766f)
+[**HTML5 game and PWD HOL Ex6 task3 sample code**](https://gist.github.com/osamum/09b9087313a9ccf035f3a94bc362766f)
+
+
+⇒ 次の「[**7. ヒット時の画像の切り替えと効果音の実装**](html5_game_HOL07.md)」に進む
+
+# 解説
+## クラスの使用
+このゲームに表示される雪の結晶の数を増やすことは、image オブジェクトをCanvan に追加する処理を複数回記述することで実装することもできます。
+ただ、それでは同じような処理を何度も繰り返し記述する必要が出てきたり、追加した複数の画像の管理が煩雑になります。
+
+これを効率よく行うには、画像も含め、雪の結晶が動作するのに必要なデータをまとめたクラスを定義し、必要に応じて必要個数ぶんのインスタンスを生成します。ちなみに「**クラス**」とは「**オブジェクト**」の定義(設計図 のようなもの) であり、new することでその定義されたオブジェクトの実体 (インスタンス) を生成して増やすことができます。生成されたインスタンスはそれぞれのプロパティに固有の値を保持することができます。
+
+## JavaScript におけるクラスの定義
+ECMA Script 2015(ECMA Script 6) から、JavaScript でもクラスを定義する構文が使用できるようになりましたが、それ以前は function(関数) を疑似的なクラスとして使用していました。
+
+例えば、以下は Human という function を定義し、その後 new キーワードで 2 つの異なるインスタンスを生成しています。ちなみに new でインスタンスを生成する関数は名前の先頭を大文字にするのが JavaScript では慣例となっています。
+```
+//Human クラスの定義 (ECMA Script 2015 以前)
+var Human = function(name){ 
+        this.name = name; 
+        this.myNameIs = function(){return name}; 
+    }; 
+//Human クラスから異なる情報をもったインスタンスを生成 
+var taro = new Human(‘タロウ’) 
+var jiro = new Human(‘ヂロウ’) 
+console.log(taro.myNameIs());  //’タロウ’ が返る 
+console.log(jiro.myNameIs());  //’ヂロウ’ が返る
+```
+## Sprite (スプライト) について
+ゲーム画面に表示されるキャラクターなどの要素を慣例的に Sprite (スプライト) と呼びます。スプライトとは、もともとは霊や精神などを意味するものです。
+
+(※) 画像処理の方法についても スプライト と呼ばれるものがありますが、ここでのスプライトはゲームのキャラクタを表します。
+このハンズオンのゲームでは、ゲーム中の雪の結晶を制御するための Sprite クラスを定義し、インスタンス化された複数のオブジェクトは配列 sprite.snows[] に格納されます。 
+
+詳しくはハンズオンのコード内の Stripe クラスの定義を確認してください。
 
 
 ### 目次
