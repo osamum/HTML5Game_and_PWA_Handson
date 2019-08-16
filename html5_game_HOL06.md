@@ -5,6 +5,9 @@
 
 具体的な手順は以下のとおりです。
 1. default.js の前半にあるオブジェクト変数 **sprite** の定義の中の **snow: null**, を以下のように **snows:[],** に書き換えます。
+
+(※)変数名は **snow** から **snows** に変更されるので注意してください。
+
     ```
     //Sprite を扱う変数オブジェクト
     let sprite = {
@@ -23,7 +26,7 @@
         //表示する雪の結晶の数 
         count : 7,
         //隣り合う 雪の結晶画像の x 位置の差分
-        neighor_distance : 56
+        neighor_distance : 56,
         /* ここに演習 6 タスク 2 で start_coefficient プロパティを記述します。*/
         /* ここに演習 7 タスク 1 で switch_count プロパティを記述します。*/
     };
@@ -36,10 +39,10 @@
     /*画像読み込み完了の Canvas に 画像を表示するメソッドを記述 */
     img.snow.onload = ()=> {
         //書き換え : ここから ->
-        for (var i = 0; i < SNOWS_MOVING_CONF.count; i++) {
+        for (let i = 0; i < SNOWS_MOVING_CONF.count; i++) {
             //画像を引数に Sprite クラスのインスタンスを生成  
             /*ここは演習 7 のタスク 1 手順 3 で変更されます*/
-            var sprite_snow = new Sprite(img.snow);
+            let sprite_snow = new Sprite(img.snow);
             sprite_snow.dy = 1;
             sprite_snow.dx = SNOWS_MOVING_CONF.neighor_distance;
             sprite_snow.x = i * sprite_snow.dx;
@@ -76,10 +79,11 @@
         }
         //追加 -> ここから
         let length = sprite.snows.length;
-        for (var i = 0; i < length; i++) {
-            var sprite_snow = sprite.snows[i];
+        for (let i = 0; i < length; i++) {
+            let sprite_snow = sprite.snows[i];
             //sprite_snow の y 値(縦位置) が canvas からはみ出たら先頭に戻す 
             if (sprite_snow.y > canvas.clientHeight) {
+                /*ここに演習 8 で gameRule.isCatched メソッドを追加します*/
                 /* ここに演習 7 のタスク 1 手順 8 でコードを追加します*/
                 sprite_snow.y = 0;
             };
@@ -139,16 +143,15 @@
     具体的には、**SNOWS_MOVING_CONF** オブジェクトの定義内にあるコメント「**/* ここに演習 6 タスク 2 で start_coefficient プロパティを記述します。*/**」を以下の記述で置き換えます。
     ```
     //開始時のマイナス値係数(出現を遅らせるため)
-    start_coefficient : -50
+    start_coefficient : -50,
     ```
     なお、前の行の **neighor_distance: 58** の最後に , (カンマ) を追加しないとエラーになるので注意してください。
 3. **loadAssets** 関数内の **sprite_snow.y** プロパティの設定箇所を変更します。
     
-    具体的にはコメント「/* 演習 6 のタスク 2 ステップ 3 で sprite_snow.y を getRandomPosition 関数でセット*/」を以下のコードに置き換えます。
+    具体的にはコメント「**/* 演習 6 のタスク 2 ステップ 3 で sprite_snow.y を getRandomPosition 関数でセット*/**」を以下のコードに置き換えます。
     ```
     sprite_snow.y = getRandomPosition(SNOWS_MOVING_CONF.count, 
                              SNOWS_MOVING_CONF.start_coefficient);
-    /*ここに演習 8 で gameRule.isCatched メソッドを追加します*/
     /*ここに演習 7 の手順 1 ステップ 8 でコードを追加します*/
     ```
 4. [Ctrl] + [S] キーを押下して作業内容を保存します。
