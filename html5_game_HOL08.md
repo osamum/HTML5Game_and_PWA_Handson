@@ -97,6 +97,7 @@
 
 * [**HTML5 game and PWD HOL Ex8 sample code**](https://gist.github.com/osamum/1f03fa48e7a2acf66aaabe61d6221859)
 
+[9. Progressive Web App 化](html5_game_HOL09.md)
 
 [0. 最初に戻る](README.md)
 

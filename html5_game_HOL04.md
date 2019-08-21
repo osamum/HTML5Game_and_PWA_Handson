@@ -114,27 +114,33 @@
         -webkit-touch-callout: none;
     }
     ```
-4. [Ctrl] + [S] キーを押下して作業内容を保存します。
-5. Visual Studio Code のターミナル画面から **http-server** を起動します。
+5. タッチデバイスでの長押しや、マウスの右ボタンクリックで表示されるコンテキストメニューを抑制するために、default.html を開き、\<body\> タグに oncontextmenu 属性を以下のように追加してください。
+
+    ```
+    <body oncontextmenu="return false;" >
+    ```
+
+6. [Ctrl] + [S] キーを押下して作業内容を保存します。
+7. Visual Studio Code のターミナル画面から **http-server** を起動します。
     <p style="text-indent:2em">
     <a href="http://127.0.0.1:8080/default.html">http://127.0.0.1:8080/default.html</a></p>
-6. コマンドプロンプトを起動し、cd コマンドで作業ディレクトリを ngrok.exe が配置されているディレクトリに切り替えます
-7. 以下のコマンドを実行して cmd にシェルを切り替えます。
+8. コマンドプロンプトを起動し、cd コマンドで作業ディレクトリを ngrok.exe が配置されているディレクトリに切り替えます
+9. 以下のコマンドを実行して cmd にシェルを切り替えます。
 
     ***cmd**
 
-8. 以下のコマンドを実行します
+10. 以下のコマンドを実行します
 
     **ngrok http 8080 --host-header=localhost**
 
-9. エコーされた内容の Foewarding の横に表示された http、もしくは https のドメイン名を使用してアクセスします
+11. エコーされた内容の Foewarding の横に表示された http、もしくは https のドメイン名を使用してアクセスします
 
     <img src="images/engrok.png">
     たとえば、ngrok から返されたドメイン名が http://9fcf38b6.engrok.io だった場合は以下の URL でインターネットからローカルの default.html にアクセスすることができます。
     
     http://9fcf38b6.engrok.io/default.html
 
-10. スマートフォンの Web ブラウザーからアクセスして、ページが表示されること、左右のスワイプで雪だるまを左右に動かせることを確認してください。
+12. スマートフォンの Web ブラウザーからアクセスして、ページが表示されること、左右のスワイプで雪だるまを左右に動かせることを確認してください。
 
 ここまでの default.js の完全なコードは以下になります。
 
@@ -174,7 +180,7 @@ let KEY_CODE = {
 ```
 //Player (雪だるま)を動かせる右の限界位置)
 function getRightLimitPosition(containerWidth, itemWidth) { 
-        return containerWidth - itemWidth; 
+    return containerWidth - itemWidth; 
 }
 ```
 ## タッチイベントの取得と判断
@@ -205,6 +211,8 @@ canvas.addEventListener('touchend', (evnt) => {
 [7. ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
 
 [8. ルールの追加](html5_game_HOL08.md)
+
+[9. Progressive Web App 化](html5_game_HOL09.md)
 
 
 [0. 最初に戻る](README.md)

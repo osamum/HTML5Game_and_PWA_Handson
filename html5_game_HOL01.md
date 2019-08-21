@@ -160,6 +160,7 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
     <div style="clear: both;"></div>
     <canvas id="bg" width="375" height="565" style="background-color:black;"></canvas>
 </div>
+<!-- ここに演習 9 のタスク 3 で Service Worker を呼び出す記述をします-->
 ```
 > ### 備考 : Canvas のサイズ指定について
 > Canvas のサイズ指定は CSS ではなく、必ずタグの属性で指定する必要があります。
@@ -232,6 +233,8 @@ engrok の実行をを終了するにはキーボードの **[Ctrl] + [C]** キ�
 [7. ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
 
 [8. ルールの追加](html5_game_HOL08.md)
+
+[9. Progressive Web App 化](html5_game_HOL09.md)
 
 [0. 最初に戻る](README.md)
 

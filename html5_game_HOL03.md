@@ -105,10 +105,8 @@ requestAnimationFrame メソッドを使用したアニメーションの実装�
 
 [8. ルールの追加](html5_game_HOL08.md)
 
+[9. Progressive Web App 化](html5_game_HOL09.md)
 
-[0. 最初に戻る](README.md)
-
-[1. 開発環境の準備とプロジェクトの作成](html5_game_HOL01.md)
 
 [0. 最初に戻る](README.md)
 
