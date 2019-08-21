@@ -114,7 +114,7 @@ Service Wroker は端的に行ってしまえばプログラミング可能な�
 
 Service Wroker 管理スコープ内にある *.html などの Web コンテンツをローカルにキャッシュし、リクエストをハンドリングして、キャッシュの内容を返したり、ページが非アクティブであってもバックグラウンドで動作しつづけ通知を行ったりもできます。
 
-<img src="images/ServiceWorker.png" width="400">
+<img src="images/ServiceWorker.png" width="500">
 
 今回のハンズオンではこの Service Worker の機能を利用して、アプリケーション全体をデバイスローカルにキャッシュ、オフライン状態でも使用できるようにします。
 
@@ -252,3 +252,20 @@ Service Worker は専用の *.js ファイルを用意し、その中に制御�
 * [**HTML5 game and PWD HOL Ex9 SW sample code**](https://gist.github.com/osamum/4c526fa7845294fd2848f036cc4080f0)
 
 
+[0. 最初に戻る](README.md)
+
+[1. 開発環境の準備とプロジェクトの作成](html5_game_HOL01.md)
+
+[2. Canvas への画像のロード](html5_game_HOL02.md)
+
+[3. 基本的なアニメーションの実装](html5_game_HOL03.md)
+
+[4. 矢印キーとタッチによる制御](html5_game_HOL04.md)
+
+[5. あたり判定](html5_game_HOL05.md)
+
+[6. 複数 Sprite の生成とランダムな動作](html5_game_HOL06.md)
+
+[7. ヒット時の画像の切り替えと効果音の実装](html5_game_HOL07.md)
+
+[8. ルールの追加](html5_game_HOL08.md)
