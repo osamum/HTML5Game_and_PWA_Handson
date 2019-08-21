@@ -114,7 +114,7 @@ Service Wroker は端的に行ってしまえばプログラミング可能な�
 
 Service Wroker 管理スコープ内にある *.html などの Web コンテンツをローカルにキャッシュし、リクエストをハンドリングして、キャッシュの内容を返したり、ページが非アクティブであってもバックグラウンドで動作しつづけ通知を行ったりもできます。
 
-<img src="images/ServiceWorker.png" width="350">
+<img src="images/ServiceWorker.png" width="400">
 
 今回のハンズオンではこの Service Worker の機能を利用して、アプリケーション全体をデバイスローカルにキャッシュ、オフライン状態でも使用できるようにします。
 
