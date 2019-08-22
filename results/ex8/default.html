@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SnowCatch HOL</title>
-    
-    <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <!-- ここに演習 9 のタスク 2 で manifest.json の参照を記述します-->
+    <link rel="stylesheet" href="css/default.css">
     <script src="scripts/default.js"></script>
 </head>
-
-<body>
+<body oncontextmenu="return false;" >
     <div style="width:375px;margin:0px auto;">
         <div id="lifeBox" class="statusBox">LIFE:3</div>
         <div id="centerBox">*SnowCatch</div>
@@ -19,6 +17,6 @@
         <div style="clear: both;"></div>
         <canvas id="bg" width="375" height="565" style="background-color:black;"></canvas>
     </div>
+    <!-- ここに演習 9 のタスク 3 で Service Worker を呼び出す記述をします-->
 </body>
-
 </html>

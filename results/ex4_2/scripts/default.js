@@ -8,11 +8,12 @@
     let key_value = 0;
     //タッチ開始時の位置
     let touchStartPos = 0;
-    //全体で使用する変数
+
     let canvas;
     let ctx;
     let img = { snow: null, snow_man: null };
     let requestId;
+
     //DOM のロードが完了したら実行      
     document.addEventListener('DOMContentLoaded', () => {
         loadAssets();
@@ -29,15 +30,17 @@
             this.y = 0; //表示位置 y 
             this.dx = 0; //移動量 x 
             this.dy = 0; //移動量 y
+            this._imageIndex = 0;
+            this._offset_x_pos = 0;
             /*ここに演習 7 のタスク 2 でオーディオ再生用の
-           プロパティが追加されます*/
-            /*ここに演習 7 のタスク 1 で Getter と Setter の
-           コードが追加されます*/
+           プロパティを追加します*/
             //Sprite を描画するメソッド 
             this.draw = () => {
                 ctx.drawImage(img, this.x, this.y);
             };
         }
+        /*ここに演習 7 のタスク 1 で Getter と Setter の
+           コードを追加します*/
     }
 
     //Sprite を扱う変数オブジェクト
@@ -60,7 +63,6 @@
             /*演習 6 のタスク 3 で loadCheck 関数を呼び出すように変更されます*/
             if (!requestId) { renderFrame(); }
         });
-
         //2D コンテキストを取得  
         ctx = canvas.getContext('2d');
         //image オブジェクトのインスタンスを生成  
@@ -148,10 +150,12 @@
         //ループを開始 
         requestId = window.requestAnimationFrame(renderFrame);
     }
+
     //雪だるまを動かせる右の限界位置を算出する 
     function getRightLimitPosition(containerWidth, itemWidth) {
         return containerWidth - itemWidth;
     }
+
     /*ここに演習 5 で isHit 関数を記述します。*/
     /*ここに演習 5 で hitJob 関数を記述します。*/
     /*ここに演習 6 タスク 2 で getRandomPosition 関数を記述します。*/

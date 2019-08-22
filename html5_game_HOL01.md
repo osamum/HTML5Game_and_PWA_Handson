@@ -90,9 +90,6 @@ Web ブラウザーで画面を描画するための html ファイルと書式�
     ```
     body {
         margin: 0;
-        touch-action: none;
-        user-select: none;
-        -webkit-touch-callout: none;
     }
     /*加点や失点を表示するボックス*/
     .statusBox {

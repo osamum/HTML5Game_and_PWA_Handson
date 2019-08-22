@@ -9,7 +9,6 @@
     //タッチ開始時の位置
     let touchStartPos = 0;
 
-    //全体で使用する変数
     let canvas;
     let ctx;
     let img = { snow: null, snow_man: null };
@@ -20,6 +19,37 @@
         loadAssets();
         setHandlers();
     });
+
+    //Sprite クラスの定義 
+    class Sprite {
+        constructor(img, sp_width, sp_height) {
+            this.image = img; //image オブジェクト 
+            this.height = (sp_height) ? sp_height : img.height;
+            this.width = (sp_width) ? sp_width : img.width;
+            this.x = 0; //表示位置 x 
+            this.y = 0; //表示位置 y 
+            this.dx = 0; //移動量 x 
+            this.dy = 0; //移動量 y
+            this._imageIndex = 0;
+            this._offset_x_pos = 0;
+            this.audio = null; //Audio オブジェクト 
+            this.audioPlayed = false; //音が複数回鳴るのを防ぐ
+
+            //Sprite を描画するメソッド 
+            this.draw = () => {
+                ctx.drawImage(img, this._offset_x_pos, 0, this.width, this.height,
+                    this.x, this.y, this.width, this.height);
+            };
+        }
+        //使用するインデックスを設定するための Setter/Getter 
+        get imageIndex() {
+            return this._imageIndex;
+        }
+        set imageIndex(val) {
+            this._imageIndex = val;
+            this._offset_x_pos = this.width * this._imageIndex;
+        }
+    }
 
     //Sprite を扱う変数オブジェクト
     let sprite = {
@@ -40,7 +70,6 @@
         //雪の結晶画像を切り替える閾値  
         switch_count: 24
     };
-
     //スプライト画像のインデックス
     let SNOW_PICTURE = { blue: 0, white: 1, clash: 2 };
     //雪の結晶の画像サイズ 
@@ -50,72 +79,37 @@
     //画面の書き換え数をカウントする 
     let loopCounter = 0;
 
-    //Sprite クラスの定義 
-    class Sprite {
-        constructor(img, sp_width, sp_height) {
-            this.image = img; //image オブジェクト 
-            this.height = (sp_height) ? sp_height : img.height;
-            this.width = (sp_width) ? sp_width : img.width;
-
-            this.x = 0;   //表示位置 x 
-            this.y = 0;  //表示位置 y 
-            this.dx = 0; //移動量 x 
-            this.dy = 0; //移動量 y 
-            this.audio = null; //Audio オブジェクト 
-            this.audioPlayed = false; //音が複数回鳴るのを防ぐ
-            let _offset_x_pos = 0;
-            let that = this;
-            //使用するインデックスを設定するための Setter/Getter 
-            let _imageIndex = 0;
-            Object.defineProperty(this, 'imageIndex', {
-                get: () => {
-                    return _imageIndex;
-                },
-                set: (val) => {
-                    _imageIndex = val;
-                    _offset_x_pos = that.width * _imageIndex;
-                }
-            });
-
-            //Sprite を描画するメソッド 
-            this.draw = () => {
-                ctx.drawImage(img, _offset_x_pos, 0, that.width, that.height,
-                    that.x, that.y, that.width, that.height);
-            };
-        }
-    }
 
     //ルールのインスタンスを格納する変数
     let gameRule;
     //ゲームのルールのクラス
-    class Rule{
-        constructor(){
+    class Rule {
+        constructor() {
             this.lifeBox = document.getElementById('lifeBox');
             this.scoreBox = document.getElementById('scoreBox');
             this.life = 3;
             this.scores = 0;
         }
-        catched(vlu=1){
+        catched(vlu = 1) {
             this.scores = this.scores + vlu;
             this.scoreBox.innerText = 'SCORE : ' + this.scores;
         }
-        fail(){
+        fail() {
             this.life--;
             this.lifeBox.innerText = 'LIFE : ' + this.life;
-            if(this.life<=0){
+            if (this.life <= 0) {
                 ctx.font = 'bold 20px sans-serif';
                 ctx.fillStyle = 'red';
                 ctx.fillText('ゲームオーバーです。', getCenterPostion(canvas.clientWidth, 200), 230);
                 window.cancelAnimationFrame(requestId);
             }
         }
-        isCatched(spriteIndex){
-            if(spriteIndex !== SNOW_PICTURE.clash){
+        isCatched(spriteIndex) {
+            if (spriteIndex !== SNOW_PICTURE.clash) {
                 this.fail();
             }
         }
     }
-
 
     //ゲームに必要なアセットをロードする
     function loadAssets() {
@@ -133,8 +127,10 @@
         img.snow = new Image();
         //image オブジェクトに画像をロード 
         img.snow.src = './img/sp_snow.png';
+        /*画像読み込み完了の Canvas に 
+        画像を表示するメソッドを記述 */
         img.snow.onload = () => {
-            for (var i = 0; i < SNOWS_MOVING_CONF.count; i++) {
+            for (let i = 0; i < SNOWS_MOVING_CONF.count; i++) {
                 //画像を引数に Sprite クラスのインスタンスを生成  
                 let sprite_snow = new Sprite(img.snow, SNOW_SIZE.width, SNOW_SIZE.height);
                 sprite_snow.dy = 1;
@@ -142,6 +138,8 @@
                 sprite_snow.x = i * sprite_snow.dx;
                 sprite_snow.y = getRandomPosition(SNOWS_MOVING_CONF.count,
                     SNOWS_MOVING_CONF.start_coefficient);
+                /*ここに演習 7 の手順 1 ステップ 8 でコードを追加します*/
+                //Audio オブジェクトのインスタンスをセット 
                 sprite_snow.audio = new Audio('./audio/kiiiin1.mp3');
                 sprite.snows.push(sprite_snow);
                 sprite_snow = null;
@@ -180,6 +178,7 @@
         canvas.addEventListener('touchstart', (evnt) => {
             touchStartPos = evnt.touches[0].clientX;
         });
+        //左右のスワイプ量を雪だるまの移動量に  
         canvas.addEventListener('touchmove', (evnt) => {
             key_value = Math.round((evnt.touches[0].clientX - touchStartPos) / 10);
         });
@@ -189,7 +188,8 @@
         });
     };
 
-    //中央の Left 位置を求める関数
+
+    //中央の Left 位置を求める関数 
     function getCenterPostion(containerWidth, itemWidth) {
         return (containerWidth / 2) - (itemWidth / 2);
     };
@@ -200,20 +200,18 @@
         // sprite.snow_man の x 値が動作範囲内かどうか 
         if ((sprite.snow_man.x < sprite.snow_man.limit_rightPosition && key_value > 0)
             || (sprite.snow_man.x >= 3 && key_value < 0)) {
-            //img.snow_man の x 値を増分 
+            //sprite.snow_man の x 値を増分 
             sprite.snow_man.x += key_value;
         }
+
         let length = sprite.snows.length;
-        for (var i = 0; i < length; i++) {
-            var sprite_snow = sprite.snows[i];
+        for (let i = 0; i < length; i++) {
+            let sprite_snow = sprite.snows[i];
             //sprite_snow の y 値(縦位置) が canvas からはみ出たら先頭に戻す 
             if (sprite_snow.y > canvas.clientHeight) {
-                sprite_snow.y = getRandomPosition(SNOWS_MOVING_CONF.count,
-                    SNOWS_MOVING_CONF.start_coefficient);
-                
                 //取り逃がしたどうか判断
                 gameRule.isCatched(sprite_snow.imageIndex);
-
+                sprite_snow.y = 0;
                 sprite_snow.imageIndex = SNOW_PICTURE.blue;
                 //オーディオ再生を停止 
                 sprite_snow.audio.pause();
@@ -231,10 +229,10 @@
             //Spriteを描画 
             sprite_snow.draw();
             //当たり判定 
-            if (isHit(sprite_snow, sprite.snow_man)&&(sprite_snow.imageIndex !== SNOW_PICTURE.clash)) 
-                { hitJob(sprite_snow) };
+            if (isHit(sprite_snow, sprite.snow_man) && (sprite_snow.imageIndex !== SNOW_PICTURE.clash)) { hitJob(sprite_snow) };
             sprite_snow = null;
         }
+
         //Spriteを描画 
         sprite.snow_man.draw();
         //処理数のカウント 
@@ -243,6 +241,7 @@
         //ループを開始 
         if(gameRule.life>0) requestId = window.requestAnimationFrame(renderFrame);
     }
+
     //雪だるまを動かせる右の限界位置を算出する 
     function getRightLimitPosition(containerWidth, itemWidth) {
         return containerWidth - itemWidth;
@@ -255,12 +254,11 @@
             && ((targetA.y <= targetB.y && targetA.y + targetA.height >= targetB.y)
                 || (targetB.y <= targetA.y && targetB.y + targetB.height >= targetA.y)));
     }
-    
+
     //あたり判定の際の処理
     function hitJob(sprite_snow) {
-       //点数を加算します。
-       gameRule.catched();
-       
+        //点数を加算します。
+        gameRule.catched();
         sprite_snow.imageIndex = SNOW_PICTURE.clash;
         if (!sprite_snow.audioPlayed) {
             sprite_snow.audio.play();
@@ -271,7 +269,6 @@
     //雪の結晶の縦位置の初期値をランダムに設定する 
     function getRandomPosition(colCount, delayPos) {
         return Math.floor(Math.random() * colCount) * delayPos;
-        sprite_snow.imageIndex = SNOW_PICTURE.clash;
     };
 
     //ゲームで使用する Splite オブジェクトが準備されたかどうかを判断 
@@ -284,4 +281,5 @@
             window.requestAnimationFrame(loadCheck);
         }
     }
+
 })();

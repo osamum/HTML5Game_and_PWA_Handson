@@ -47,7 +47,7 @@
 
 * [**HTML5 game and PWD HOL Ex5 sample code**](https://gist.github.com/osamum/0acd43c12e00aa0811ab21b95b2b1d2d)
 
-実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex5/default.html)をクリックしてください。
+実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex5/default.html)をクリックしてください。
 
 ⇒ 次の「[**6. 複数 Sprite の生成とランダムな動作**](html5_game_HOL06.md)」に進む
 

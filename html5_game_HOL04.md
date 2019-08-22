@@ -80,7 +80,7 @@
 
 *[**HTML5 game and PWD HOL Ex4 task1 sample code**](https://gist.github.com/osamum/2c31d14e6d5623863f5e36e2e04c35d0)
 
-実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_1/default.html)をクリックしてください。
+実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_1/default.html)をクリックしてください。
 
 
 
@@ -106,12 +106,18 @@
     ```
 2. [Ctrl] + [S] キーを押下して作業内容を保存します。
 3. タッチデバイスのズームやピンチ、長押しでの選択機能を無効可します。
+
+    また、スマートフォンの画面サイズによって表示される余白を目立たなくするために背景色を黒にします。
+
     Visual Studio Code の左のツリーから default.css を開き、以下のマークアップを貼り付けます。
     ```
-    body{
-        touch-action: none;
-        user-select:none; 
+    body {
+        margin: 0;
+        /*貼り付けた箇所↓*/
         -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        background-color: black;
     }
     ```
 5. タッチデバイスでの長押しや、マウスの右ボタンクリックで表示されるコンテキストメニューを抑制するために、default.html を開き、\<body\> タグに oncontextmenu 属性を以下のように追加してください。
@@ -146,7 +152,7 @@
 
 * [**HTML5 game and PWD HOL Ex4 sample code**](https://gist.github.com/osamum/fb7b00f4d8b3d23e68a36bbbf606a767)
 
-実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_2/default.html)をクリックしてください。
+実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex4_2/default.html)をクリックしてください。
 
 ⇒ 次の「[**5. 当たり判定**](html5_game_HOL05.md)」に進む
 

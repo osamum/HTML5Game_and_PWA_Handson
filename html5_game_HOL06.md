@@ -119,7 +119,7 @@
 
 * [**HTML5 game and PWD HOL Ex6 task1 sample code**](https://gist.github.com/osamum/047b98b27fa209af9b128afa40c026da)
 
-実際のコードの動作を確認したい場合は[ここ](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex6_1/default.html)をクリックしてください。
+実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex6_1/default.html)をクリックしてください。
 
 
 
@@ -202,6 +202,8 @@
 ここまでの default.js の完全なコードは以下になります。
 
 * [**HTML5 game and PWD HOL Ex6 task3 sample code**](https://gist.github.com/osamum/09b9087313a9ccf035f3a94bc362766f)
+
+実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex6_2/default.html)をクリックしてください。
 
 
 ⇒ 次の「[**7. ヒット時の画像の切り替えと効果音の実装**](html5_game_HOL07.md)」に進む

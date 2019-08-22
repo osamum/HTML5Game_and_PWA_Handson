@@ -1,10 +1,13 @@
 body {
     margin: 0;
-    touch-action: none;
-    user-select: none;
+    /*貼り付けた箇所↓*/
     -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: black;
 }
 
+/*加点や失点を表示するボックス*/
 .statusBox {
     width: 134px;
     text-align: center;
@@ -14,7 +17,7 @@ body {
     color:skyblue;
     padding: 3px;
 }
-
+/*タイトルを表示するボックス*/
 #centerBox {
     width: 89px;
     background-color: black;

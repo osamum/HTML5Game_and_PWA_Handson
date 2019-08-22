@@ -251,6 +251,8 @@ Service Worker は専用の *.js ファイルを用意し、その中に制御�
 
 * [**HTML5 game and PWD HOL Ex9 SW sample code**](https://gist.github.com/osamum/4c526fa7845294fd2848f036cc4080f0)
 
+実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex9/default.html)をクリックしてください。
+
 
 [0. 最初に戻る](README.md)
 

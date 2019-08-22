@@ -171,6 +171,9 @@
 
 * [**HTML5 game and PWD HOL Ex7 task 1 sample code**](https://gist.github.com/osamum/50551b30d92be53a0958ba855d2b1896)
 
+実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex7_1/default.html)をクリックしてください。
+
+
 ## タスク 2 : あたり判定時のオーディオファイルの再生
 あたり判定時にオーディオファイルを再生する処理を実装します。
 1. **Sprite** のクラスに Audio オブジェクトのインスタンスを格納するための変数 **audio** と 繰り返し再生を避けるために再生済みを示すフラグ **audioPlayed** を定義します。
@@ -210,6 +213,8 @@
 ここまでの default.js の完全なコードは以下になります。
 
 * [**HTML5 game and PWD HOL Ex7 task 2 sample code**](https://gist.github.com/osamum/04a0b1df027e7e4b7b8a5c2dd0ba5d7f)
+
+実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex7_2/default.html)をクリックしてください。
 
 ⇒ 次の「[**8.  ルールの追加**](html5_game_HOL08.md)」に進む
 
