@@ -102,12 +102,28 @@
                 ctx.fillStyle = 'red';
                 ctx.fillText('ゲームオーバーです。', getCenterPostion(canvas.clientWidth, 200), 230);
                 window.cancelAnimationFrame(requestId);
+                setTimeout(() => {
+                    this.reset(this);
+                }, 500);
             }
         }
         isCatched(spriteIndex) {
             if (spriteIndex !== SNOW_PICTURE.clash) {
                 this.fail();
             }
+        }
+        reset(that) {
+            for (let sprite_snow of sprite.snows) {
+                sprite_snow.y = getRandomPosition(SNOWS_MOVING_CONF.count,
+                    SNOWS_MOVING_CONF.start_coefficient);
+                sprite_snow.imageIndex = SNOW_PICTURE.blue;
+            }
+            that.life = 3;
+            that.scores = 0;
+            that.scoreBox.innerText = 'SCORE : 0';
+            that.lifeBox.innerText = 'LIFE : 3';
+            sprite.snow_man.x = getCenterPostion(canvas.clientWidth, sprite.snow_man.width);
+            requestId = null;
         }
     }
 

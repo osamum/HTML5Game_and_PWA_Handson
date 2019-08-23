@@ -101,6 +101,9 @@
                 ctx.fillStyle = 'red';
                 ctx.fillText('ゲームオーバーです。', getCenterPostion(canvas.clientWidth, 200), 230);
                 window.cancelAnimationFrame(requestId);
+                setTimeout(() => {
+                    this.reset(this);
+                }, 500);
             }
         }
         isCatched(spriteIndex) {
@@ -108,8 +111,8 @@
                 this.fail();
             }
         }
-        reset(that){
-            for(let sprite_snow of sprite.snows){
+        reset(that) {
+            for (let sprite_snow of sprite.snows) {
                 sprite_snow.y = getRandomPosition(SNOWS_MOVING_CONF.count,
                     SNOWS_MOVING_CONF.start_coefficient);
                 sprite_snow.imageIndex = SNOW_PICTURE.blue;
@@ -252,7 +255,7 @@
         if (loopCounter == SNOWS_MOVING_CONF.switch_count) { loopCounter = 0; }
         loopCounter++;
         //ループを開始 
-        if(gameRule.life>0) requestId = window.requestAnimationFrame(renderFrame);
+        if (gameRule.life > 0) requestId = window.requestAnimationFrame(renderFrame);
     }
 
     //雪だるまを動かせる右の限界位置を算出する 
