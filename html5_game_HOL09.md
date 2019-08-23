@@ -222,7 +222,9 @@ Service Worker は専用の *.js ファイルを用意し、その中に制御�
 
     **ngrok http 8080 --host-header=localhost**
 
-13. エコーされた内容の Foewarding の横に表示された http、もしくは https のドメイン名を使用してアクセスします
+13. エコーされた内容の Foewarding の横に表示された **https** のドメイン名を使用してアクセスします。
+
+    **Service Worker は https で接続しないと動作しません。**
 
     <img src="images/engrok.png">
     たとえば、ngrok から返されたドメイン名が http://9fcf38b6.engrok.io だった場合は以下の URL でインターネットからローカルの default.html にアクセスすることができます。
