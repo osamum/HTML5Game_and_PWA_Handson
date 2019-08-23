@@ -249,6 +249,28 @@ Service Worker は専用の *.js ファイルを用意し、その中に制御�
 
 実際のコードの動作を確認したい場合は[**ここ**](https://osamum.github.io/HTML5Game_and_PWA_Handson/results/ex9/default.html)をクリックしてください。
 
+## Web サーバーに配置するさいの注意
+PWA では manifest.json を使用します。
+
+Web サーバーの設定によっては JSON ファイルのレスポンスが許可されていない場合があります。
+
+たとえば Microsoft Azure の Web Apps では、初期設定で JSON のレスポンスは許可されていないので、そのままデプロイしても PWA としては動作できません。
+
+この場合の回避策としては、PWA のルートディレクトリに以下の内容を記述した web.config というファイルを配置し、一緒にデプロイします。
+```
+<?xml version="1.0"?>
+<configuration>
+<system.webServer>
+<staticContent>
+    <mimeMap fileExtension=".json" mimeType="application/json" />
+    <mimeMap fileExtension=".ico" mimeType="image/x-icon" />
+</staticContent>
+</system.webServer>
+</configuration>
+```
+
+
+
 # 解説
 ## Progressive Web App とは?
 Progressive Web App (以下 PWA と記述) は、一言でいうならば「ネイティブアプリのような UX を提供する Web アプリの概念」といったところでしょう。
