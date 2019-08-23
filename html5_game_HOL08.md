@@ -16,31 +16,48 @@
     //ルールのインスタンスを格納する変数
     let gameRule;
     //ゲームのルールのクラス
-    class Rule{
-        constructor(){
+    class Rule {
+        constructor() {
             this.lifeBox = document.getElementById('lifeBox');
             this.scoreBox = document.getElementById('scoreBox');
             this.life = 3;
             this.scores = 0;
         }
-        catched(vlu=1){
+        catched(vlu = 1) {
             this.scores = this.scores + vlu;
             this.scoreBox.innerText = 'SCORE : ' + this.scores;
         }
-        fail(){
+        fail() {
             this.life--;
             this.lifeBox.innerText = 'LIFE : ' + this.life;
-            if(this.life<=0){
+            if (this.life <= 0) {
                 ctx.font = 'bold 20px sans-serif';
                 ctx.fillStyle = 'red';
                 ctx.fillText('ゲームオーバーです。', getCenterPostion(canvas.clientWidth, 200), 230);
                 window.cancelAnimationFrame(requestId);
+                setTimeout(()=>{
+                    this.reset(this);
+                },500);
             }
         }
-        isCatched(spriteIndex){
-            if(spriteIndex !== SNOW_PICTURE.clash){
+        isCatched(spriteIndex) {
+            if (spriteIndex !== SNOW_PICTURE.clash) {
                 this.fail();
             }
+        }
+        reset(that){
+            //リセット処理
+            for(let sprite_snow of sprite.snows){
+                sprite_snow.y = getRandomPosition(SNOWS_MOVING_CONF.count,
+                    SNOWS_MOVING_CONF.start_coefficient);
+                sprite_snow.imageIndex = SNOW_PICTURE.blue;
+            }
+            that.life = 3;
+            that.scores = 0;
+            that.scoreBox.innerText = 'SCORE : 0';
+            that.lifeBox.innerText = 'LIFE : 3';
+            sprite.snow_man.x = getCenterPostion(canvas.clientWidth, sprite.snow_man.width);
+            requestId = null;
         }
     }
     ```
